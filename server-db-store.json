@@ -1,0 +1,648 @@
+{
+  "unidades": [
+    {
+      "id_unidad": "UN-OVINOS",
+      "codigo": "OVINOS",
+      "nombre": "Unidad de Negocio Ovinos",
+      "descripcion": "Establecimiento Pozo del Carril - Taller de Práctica Profesional UNRC",
+      "activo": true
+    }
+  ],
+  "subunidades": [
+    {
+      "id_subunidad": "SUB-CRIA",
+      "id_unidad": "UN-OVINOS",
+      "codigo": "CRIA",
+      "nombre": "Cría Ovina",
+      "descripcion": "Manejo de majada reproductora, servicio, parición y lactancia",
+      "activo": true
+    },
+    {
+      "id_subunidad": "SUB-REC",
+      "id_unidad": "UN-OVINOS",
+      "codigo": "RECRIA",
+      "nombre": "Recría Ovina",
+      "descripcion": "Crecimiento de corderas de reposición y borregas",
+      "activo": true
+    },
+    {
+      "id_subunidad": "SUB-ENG",
+      "id_unidad": "UN-OVINOS",
+      "codigo": "ENGORDE",
+      "nombre": "Engorde / Terminación",
+      "descripcion": "Terminación intensiva / semi-intensiva de corderos a faena",
+      "activo": true
+    }
+  ],
+  "campanias": [
+    {
+      "id_campania": "CAM-2026",
+      "codigo": "2026/2027",
+      "nombre": "Campaña Productiva 2026/2027",
+      "anio_inicio": 2026,
+      "anio_fin": 2027,
+      "fecha_inicio": "2026-07-01",
+      "fecha_fin": "2027-06-30",
+      "estado": "ABIERTA"
+    }
+  ],
+  "lotes": [
+    {
+      "id_lote": "LOT001",
+      "id_subunidad": "SUB-CRIA",
+      "codigo": "LOT001",
+      "nombre": "Lote 1 - Potrero Principal Pozo del Carril",
+      "superficie_ha": 45,
+      "observaciones": "Lote físico único relevado actualmente. Alberga las diferentes subunidades de gestión.",
+      "activo": true
+    }
+  ],
+  "categorias": [
+    {
+      "id_categoria": "CAT-MAD",
+      "id_subunidad": "SUB-CRIA",
+      "codigo": "MAD",
+      "nombre": "Madres / Ovejas de Cría",
+      "genero": "HEMBRA",
+      "edad_meses_min": 18,
+      "edad_meses_max": 96,
+      "es_reproductor": true,
+      "activo": true
+    },
+    {
+      "id_categoria": "CAT-CAR",
+      "id_subunidad": "SUB-CRIA",
+      "codigo": "CAR",
+      "nombre": "Carneros Reproductores",
+      "genero": "MACHO",
+      "edad_meses_min": 18,
+      "edad_meses_max": 84,
+      "es_reproductor": true,
+      "activo": true
+    },
+    {
+      "id_categoria": "CAT-SNC",
+      "id_subunidad": "SUB-CRIA",
+      "codigo": "SNC",
+      "nombre": "Ovinos Sin Clasificar (Pendiente de confirmación)",
+      "genero": "MIXTO",
+      "edad_meses_min": 6,
+      "edad_meses_max": 24,
+      "es_reproductor": false,
+      "activo": true
+    },
+    {
+      "id_categoria": "CAT-BOR",
+      "id_subunidad": "SUB-REC",
+      "codigo": "BOR",
+      "nombre": "Borregas de Reposición",
+      "genero": "HEMBRA",
+      "edad_meses_min": 8,
+      "edad_meses_max": 18,
+      "es_reproductor": false,
+      "activo": true
+    },
+    {
+      "id_categoria": "CAT-COR-DES",
+      "id_subunidad": "SUB-REC",
+      "codigo": "COR_DES",
+      "nombre": "Corderos Destetados",
+      "genero": "MIXTO",
+      "edad_meses_min": 3,
+      "edad_meses_max": 6,
+      "es_reproductor": false,
+      "activo": true
+    },
+    {
+      "id_categoria": "CAT-COR-ENG",
+      "id_subunidad": "SUB-ENG",
+      "codigo": "COR_ENG",
+      "nombre": "Corderos en Engorde",
+      "genero": "MIXTO",
+      "edad_meses_min": 4,
+      "edad_meses_max": 8,
+      "es_reproductor": false,
+      "activo": true
+    }
+  ],
+  "insumos": [
+    {
+      "id_insumo": "INS-ANTIPAR",
+      "codigo": "MED-01",
+      "nombre": "Antiparasitario Ivermectina 1% Ovina",
+      "tipo": "SANITARIO",
+      "id_um": "UM-DOSIS",
+      "um_codigo": "DOSIS",
+      "stock_actual": 250,
+      "precio_promedio_ponderado": 350,
+      "activo": true
+    },
+    {
+      "id_insumo": "INS-VAC-CLOS",
+      "codigo": "MED-02",
+      "nombre": "Vacuna Clostridial Polivalente Ovina",
+      "tipo": "SANITARIO",
+      "id_um": "UM-DOSIS",
+      "um_codigo": "DOSIS",
+      "stock_actual": 300,
+      "precio_promedio_ponderado": 520,
+      "activo": true
+    },
+    {
+      "id_insumo": "INS-BAL-ENG",
+      "codigo": "ALI-01",
+      "nombre": "Alimento Balanceado Terminación Ovina 16% PB",
+      "tipo": "ALIMENTO",
+      "id_um": "UM-KG",
+      "um_codigo": "KG",
+      "stock_actual": 2400,
+      "precio_promedio_ponderado": 380,
+      "activo": true
+    },
+    {
+      "id_insumo": "INS-FARDO-ALF",
+      "codigo": "FOR-01",
+      "nombre": "Fardo de Alfalfa 1ra Calidad",
+      "tipo": "FORRAJE",
+      "id_um": "UM-FARDO",
+      "um_codigo": "FARDO",
+      "stock_actual": 120,
+      "precio_promedio_ponderado": 4500,
+      "activo": true
+    }
+  ],
+  "productos": [
+    {
+      "id_producto": "PROD-COR-PES",
+      "codigo": "COR-PES",
+      "nombre": "Cordero Pesado en Pie (28-34 kg)",
+      "tipo": "CARNE_VIVO",
+      "id_um": "UM-KG",
+      "um_codigo": "KG",
+      "activo": true
+    },
+    {
+      "id_producto": "PROD-COR-LIV",
+      "codigo": "COR-LIV",
+      "nombre": "Cordero Liviano / Pascual (20-24 kg)",
+      "tipo": "CARNE_VIVO",
+      "id_um": "UM-KG",
+      "um_codigo": "KG",
+      "activo": true
+    },
+    {
+      "id_producto": "PROD-LANA",
+      "codigo": "LANA-VELLON",
+      "nombre": "Lana Vellón Sucia Prolana",
+      "tipo": "LANA",
+      "id_um": "UM-KG",
+      "um_codigo": "KG",
+      "activo": true
+    },
+    {
+      "id_producto": "PROD-OVEJA-DESC",
+      "codigo": "OVEJA-REFUG",
+      "nombre": "Oveja Descarte en Pie",
+      "tipo": "DESCARTE",
+      "id_um": "UM-KG",
+      "um_codigo": "KG",
+      "activo": true
+    }
+  ],
+  "terceros": [
+    {
+      "id_tercero": "TER-FRIG-01",
+      "cuit_cuil": "30-71123456-9",
+      "razon_social": "Frigorífico Regional del Sur S.A.",
+      "tipo": "CLIENTE",
+      "telefono": "358-4612345",
+      "email": "compras@frigorificosur.com.ar",
+      "localidad": "Río Cuarto, Córdoba",
+      "activo": true
+    },
+    {
+      "id_tercero": "TER-VET-01",
+      "cuit_cuil": "30-68991234-2",
+      "razon_social": "Veterinaria & Nutrición Ganadera Río Cuarto",
+      "tipo": "PROVEEDOR",
+      "telefono": "358-4698765",
+      "email": "ventas@vetganadera.com",
+      "localidad": "Río Cuarto, Córdoba",
+      "activo": true
+    }
+  ],
+  "cuentas": [
+    {
+      "id_cuenta": "CTA-1-1-01",
+      "codigo_plan": "1.1.01",
+      "nombre": "Caja y Bancos (Caja Chica UNRC)",
+      "tipo": "ACTIVO",
+      "activo": true
+    },
+    {
+      "id_cuenta": "CTA-1-1-03",
+      "codigo_plan": "1.1.03",
+      "nombre": "Créditos por Ventas (Clientes Frigoríficos)",
+      "tipo": "ACTIVO",
+      "activo": true
+    },
+    {
+      "id_cuenta": "CTA-1-1-05",
+      "codigo_plan": "1.1.05",
+      "nombre": "Bienes de Cambio - Insumos y Medicamentos",
+      "tipo": "ACTIVO",
+      "activo": true
+    },
+    {
+      "id_cuenta": "CTA-1-2-01",
+      "codigo_plan": "1.2.01",
+      "nombre": "Activos Biológicos - Reproductores Ovinos (RT 54)",
+      "tipo": "ACTIVO",
+      "activo": true
+    },
+    {
+      "id_cuenta": "CTA-2-1-01",
+      "codigo_plan": "2.1.01",
+      "nombre": "Proveedores Comerciales Insumos",
+      "tipo": "PASIVO",
+      "activo": true
+    },
+    {
+      "id_cuenta": "CTA-4-1-01",
+      "codigo_plan": "4.1.01",
+      "nombre": "Ingresos por Venta de Ovinos",
+      "tipo": "INGRESO",
+      "activo": true
+    },
+    {
+      "id_cuenta": "CTA-5-1-01",
+      "codigo_plan": "5.1.01",
+      "nombre": "Costos Directos - Alimentación Ovina",
+      "tipo": "COSTO",
+      "activo": true
+    },
+    {
+      "id_cuenta": "CTA-5-1-02",
+      "codigo_plan": "5.1.02",
+      "nombre": "Costos Directos - Sanidad Ovina",
+      "tipo": "COSTO",
+      "activo": true
+    },
+    {
+      "id_cuenta": "CTA-5-2-01",
+      "codigo_plan": "5.2.01",
+      "nombre": "Costos Indirectos - Mantenimiento e Instalaciones",
+      "tipo": "COSTO",
+      "activo": true
+    }
+  ],
+  "inventario": [
+    {
+      "id_inventario": "INV-2026-01",
+      "id_campania": "CAM-2026",
+      "id_subunidad": "SUB-CRIA",
+      "id_lote": "LOT001",
+      "id_categoria": "CAT-MAD",
+      "fecha": "2026-08-30",
+      "cabezas": 64,
+      "kg_vivo_total": 3520,
+      "valor_unitario": 85000,
+      "valor_total": 5440000,
+      "estado_confirmacion": "CONFIRMADO",
+      "observaciones": "Madres ovinas en servicio / gestación lote LOT001"
+    },
+    {
+      "id_inventario": "INV-2026-02",
+      "id_campania": "CAM-2026",
+      "id_subunidad": "SUB-CRIA",
+      "id_lote": "LOT001",
+      "id_categoria": "CAT-CAR",
+      "fecha": "2026-08-30",
+      "cabezas": 2,
+      "kg_vivo_total": 170,
+      "valor_unitario": 220000,
+      "valor_total": 440000,
+      "estado_confirmacion": "CONFIRMADO",
+      "observaciones": "Carneros puros controlados para encarnerada"
+    },
+    {
+      "id_inventario": "INV-2026-03",
+      "id_campania": "CAM-2026",
+      "id_subunidad": "SUB-CRIA",
+      "id_lote": "LOT001",
+      "id_categoria": "CAT-SNC",
+      "fecha": "2026-08-30",
+      "cabezas": 15,
+      "kg_vivo_total": 450,
+      "valor_unitario": 50000,
+      "valor_total": 750000,
+      "estado_confirmacion": "PENDIENTE_CONFIRMACION",
+      "observaciones": "Animales pendientes de tipificación zootécnica por el equipo del TPP UNRC"
+    }
+  ],
+  "movimientos": [
+    {
+      "id_movimiento": "MOV-HIST-01",
+      "id_campania": "CAM-2026",
+      "fecha": "2026-07-20",
+      "tipo": "VENTA",
+      "id_subunidad_origen": "SUB-REC",
+      "id_lote_origen": "LOT001",
+      "id_categoria_origen": "CAT-COR-DES",
+      "cabezas": 15,
+      "kg_vivo_total": 420,
+      "id_operacion_relacionada": "VTA-HIST-01",
+      "motivo": "Venta histórica previa de 15 corderos destetados (Unificación VEN001 y OP011). No afecta existencia de corte al 30/08/2026.",
+      "anulado": false,
+      "es_prueba": false,
+      "usuario_id": "USR-ADMIN"
+    }
+  ],
+  "pesajes": [],
+  "produccion": [],
+  "referencias": [
+    {
+      "id_referencia": "REF-CRIA-PARICION",
+      "id_campania": "CAM-2026",
+      "id_subunidad": "SUB-CRIA",
+      "indicador": "PORC_PARICION",
+      "valor_referencia": 92,
+      "unidad": "%",
+      "numerador_def": "Corderos nacidos vivos",
+      "denominador_def": "Ovejas encarneradas / servidas",
+      "fuente": "Estándar TPP UNRC / INTA Manfredi",
+      "fecha_vigencia": "2026-07-01"
+    },
+    {
+      "id_referencia": "REF-CRIA-DESTETE",
+      "id_campania": "CAM-2026",
+      "id_subunidad": "SUB-CRIA",
+      "indicador": "PORC_DESTETE",
+      "valor_referencia": 85,
+      "unidad": "%",
+      "numerador_def": "Corderos destetados",
+      "denominador_def": "Ovejas encarneradas",
+      "fuente": "Estándar TPP UNRC",
+      "fecha_vigencia": "2026-07-01"
+    },
+    {
+      "id_referencia": "REF-REC-GMD",
+      "id_campania": "CAM-2026",
+      "id_subunidad": "SUB-REC",
+      "indicador": "GMD_G_DIA",
+      "valor_referencia": 180,
+      "unidad": "g/dia",
+      "numerador_def": "Ganancia de peso en gramos",
+      "denominador_def": "Días transcurridos",
+      "fuente": "Ensayo Nutricional UNRC",
+      "fecha_vigencia": "2026-07-01"
+    },
+    {
+      "id_referencia": "REF-ENG-GMD",
+      "id_campania": "CAM-2026",
+      "id_subunidad": "SUB-ENG",
+      "indicador": "GMD_G_DIA",
+      "valor_referencia": 240,
+      "unidad": "g/dia",
+      "numerador_def": "Ganancia de peso en gramos en terminación",
+      "denominador_def": "Días de engorde intensivo",
+      "fuente": "Protocolo Ración Engorde Pozo del Carril",
+      "fecha_vigencia": "2026-07-01"
+    }
+  ],
+  "dosis": [
+    {
+      "id_dosis": "DOSIS-ANTIPAR-MAD",
+      "id_insumo": "INS-ANTIPAR",
+      "id_subunidad": "SUB-CRIA",
+      "id_campania": "CAM-2026",
+      "dosis_valor": 1,
+      "id_um": "UM-DOSIS",
+      "base_aplicacion": "POR_CAB_MADRE",
+      "nombre_protocolo": "Desparasitación Pre-Servicio / Pre-Parición",
+      "fuente": "Cátedra Sanidad Ovina UNRC",
+      "vigencia_desde": "2026-07-01"
+    },
+    {
+      "id_dosis": "DOSIS-VAC-CLOS-CRIA",
+      "id_insumo": "INS-VAC-CLOS",
+      "id_subunidad": "SUB-CRIA",
+      "id_campania": "CAM-2026",
+      "dosis_valor": 1,
+      "id_um": "UM-DOSIS",
+      "base_aplicacion": "POR_CAB_TOTAL",
+      "nombre_protocolo": "Inmunización Clostridial Anual Majada",
+      "fuente": "Plan Sanitario Oficial",
+      "vigencia_desde": "2026-07-01"
+    },
+    {
+      "id_dosis": "DOSIS-BAL-ENG",
+      "id_insumo": "INS-BAL-ENG",
+      "id_subunidad": "SUB-ENG",
+      "id_campania": "CAM-2026",
+      "dosis_valor": 0.85,
+      "id_um": "UM-KG",
+      "base_aplicacion": "POR_CAB_TOTAL",
+      "nombre_protocolo": "Ración Diaria Engorde Cordero Pesado",
+      "fuente": "Guía de Alimentación TPP UNRC",
+      "vigencia_desde": "2026-07-01"
+    }
+  ],
+  "sanidad": [],
+  "consumos": [],
+  "compras": [],
+  "detalles_compras": [],
+  "ventas": [
+    {
+      "id_venta": "VTA-HIST-01",
+      "id_campania": "CAM-2026",
+      "id_subunidad": "SUB-REC",
+      "id_tercero": "TER-FRIG-01",
+      "comprobante_nro": "VEN001-OP011-UNIFICADO",
+      "fecha": "2026-07-20",
+      "importe_total": 630000,
+      "saldo_pendiente": 0,
+      "estado_cobro": "COBRADO",
+      "anulado": false,
+      "es_prueba": false,
+      "usuario_id": "USR-ADMIN"
+    }
+  ],
+  "detalles_ventas": [
+    {
+      "id_detalle_venta": "DET-VTA-01",
+      "id_venta": "VTA-HIST-01",
+      "id_producto": "PROD-COR-LIV",
+      "id_categoria": "CAT-COR-DES",
+      "cabezas": 15,
+      "kg_total": 420,
+      "precio_unitario": 1500,
+      "subtotal": 630000
+    }
+  ],
+  "costos": [],
+  "distribuciones_costos": [],
+  "cobros": [
+    {
+      "id_cobro": "COB-HIST-01",
+      "id_venta": "VTA-HIST-01",
+      "id_cuenta_cobro": "CTA-1-1-01",
+      "fecha": "2026-07-25",
+      "importe": 630000,
+      "medio_pago": "TRANSFERENCIA",
+      "recibo_nro": "REC-0001-000045",
+      "es_prueba": false,
+      "usuario_id": "USR-ADMIN"
+    }
+  ],
+  "pagos": [],
+  "usuarios": [
+    {
+      "id_usuario": "USR-ADMIN",
+      "username": "admin",
+      "password_hash": "admin123",
+      "nombre_completo": "Prof. Coordinador TPP",
+      "email": "tpp_ovinos@unrc.edu.ar",
+      "id_rol": "ROL-ADMIN",
+      "rol_nombre": "ADMINISTRADOR",
+      "activo": true,
+      "fecha_alta": "2026-07-01",
+      "fecha_modificacion": "2026-07-01"
+    },
+    {
+      "id_usuario": "USR-RESP",
+      "username": "responsable",
+      "password_hash": "resp123",
+      "nombre_completo": "Ing. Zootecnista Pozo del Carril",
+      "email": "responsable_ovinos@unrc.edu.ar",
+      "id_rol": "ROL-RESP",
+      "rol_nombre": "RESPONSABLE_UNIDAD",
+      "activo": true,
+      "fecha_alta": "2026-07-01",
+      "fecha_modificacion": "2026-07-01"
+    },
+    {
+      "id_usuario": "USR-OPER",
+      "username": "operador",
+      "password_hash": "oper123",
+      "nombre_completo": "Estudiante Pasante de Campo",
+      "email": "estudiante_campo@unrc.edu.ar",
+      "id_rol": "ROL-OPER",
+      "rol_nombre": "OPERADOR",
+      "activo": true,
+      "fecha_alta": "2026-07-01",
+      "fecha_modificacion": "2026-07-01"
+    },
+    {
+      "id_usuario": "USR-AUDIT",
+      "username": "auditor",
+      "password_hash": "audit123",
+      "nombre_completo": "Comisión Revisora Académica",
+      "email": "auditoria_tpp@unrc.edu.ar",
+      "id_rol": "ROL-AUDIT",
+      "rol_nombre": "AUDITORIA",
+      "activo": true,
+      "fecha_alta": "2026-07-01",
+      "fecha_modificacion": "2026-07-01"
+    },
+    {
+      "id_usuario": "USR-INACTIVO",
+      "username": "inactivo_demo",
+      "password_hash": "demo123",
+      "nombre_completo": "Usuario Suspendido (Para Prueba de Rechazo)",
+      "email": "suspendido@unrc.edu.ar",
+      "id_rol": "ROL-OPER",
+      "rol_nombre": "OPERADOR",
+      "activo": false,
+      "fecha_alta": "2026-07-01",
+      "fecha_modificacion": "2026-10-07"
+    },
+    {
+      "id_usuario": "USR-123",
+      "username": "123",
+      "password_hash": "taller 2",
+      "nombre_completo": "Usuario Taller 2",
+      "email": "taller2@unrc.edu.ar",
+      "id_rol": "ROL-ADMIN",
+      "rol_nombre": "ADMINISTRADOR",
+      "activo": true,
+      "inhabilitado": false,
+      "fecha_alta": "2026-07-01",
+      "fecha_modificacion": "2026-10-08"
+    }
+  ],
+  "auditoria": [
+    {
+      "id_auditoria": "AUD-1791467983528",
+      "id_usuario": "USR-ADMIN",
+      "username": "admin",
+      "fecha_hora": "2026-10-08 13:59:43",
+      "operacion": "ALTA",
+      "tabla_afectada": "usuarios",
+      "id_registro": "USR-1791467983528",
+      "valor_nuevo": "{\"username\":\"docente_prueba\",\"rol\":\"OPERADOR\",\"activo\":true}",
+      "motivo": "Alta de nuevo usuario: Docente Prueba (@docente_prueba) con rol OPERADOR"
+    },
+    {
+      "id_auditoria": "AUD-1791407433127",
+      "id_usuario": "USR-ADMIN",
+      "username": "admin",
+      "fecha_hora": "2026-10-07 21:10:33",
+      "operacion": "MODIFICACION",
+      "tabla_afectada": "usuarios",
+      "id_registro": "USR-INACTIVO",
+      "valor_anterior": "{\"activo\":true}",
+      "valor_nuevo": "{\"activo\":false}",
+      "motivo": "Cambio de estado de acceso para usuario @inactivo_demo: activo=false"
+    },
+    {
+      "id_auditoria": "AUD-1791407426457",
+      "id_usuario": "USR-ADMIN",
+      "username": "admin",
+      "fecha_hora": "2026-10-07 21:10:26",
+      "operacion": "MODIFICACION",
+      "tabla_afectada": "usuarios",
+      "id_registro": "USR-INACTIVO",
+      "valor_anterior": "{\"activo\":false}",
+      "valor_nuevo": "{\"activo\":true}",
+      "motivo": "Cambio de estado de acceso para usuario @inactivo_demo: activo=true"
+    },
+    {
+      "id_auditoria": "AUD-0001",
+      "id_usuario": "USR-ADMIN",
+      "username": "admin",
+      "fecha_hora": "2026-08-30 08:00:00",
+      "operacion": "ALTA",
+      "tabla_afectada": "inventario_inicial",
+      "id_registro": "INV-2026-01",
+      "valor_nuevo": "{\"cabezas\":81,\"fecha\":\"2026-08-30\",\"lote\":\"LOT001\"}",
+      "motivo": "Carga de inventario base 81 cabezas Pozo del Carril (64 madres, 2 carneros, 15 sin clasificar)"
+    }
+  ],
+  "especies": [
+    {
+      "id_especie": "ESP001",
+      "codigo": "OVI",
+      "nombre": "Ovinos",
+      "icono": "🐑",
+      "activo": true,
+      "orden_visual": 1
+    },
+    {
+      "id_especie": "ESP002",
+      "codigo": "BOV",
+      "nombre": "Bovinos",
+      "icono": "🐄",
+      "activo": true,
+      "orden_visual": 2
+    },
+    {
+      "id_especie": "ESP003",
+      "codigo": "POR",
+      "nombre": "Porcinos",
+      "icono": "🐖",
+      "activo": true,
+      "orden_visual": 3
+    }
+  ]
+}

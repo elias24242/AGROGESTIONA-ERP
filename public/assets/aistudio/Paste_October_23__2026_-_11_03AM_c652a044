@@ -1,0 +1,571 @@
+# PROMPT DEFINITIVO — COMPLETAR DATOS DE BOVINOS Y PORCINOS EN SISTEMA DE GESTIÓN GANADERA
+
+## 1. Objetivo principal
+
+Quiero completar y enriquecer la información de la aplicación **ERP Ovinos - Pozo del Carril**, correspondiente al establecimiento experimental rural Pozo del Carril – La Aguada.
+
+La aplicación ya existe y cuenta con estructura, pantallas, navegación, indicadores, gráficos, filtros, cálculos y datos cargados, incluidos los de la producción ovina.
+
+**Tu tarea es incorporar y organizar los datos de bovinos y porcinos que se detallan en este prompt, para completar los registros que estén vacíos o incompletos, sin modificar, reemplazar, borrar ni alterar los datos ovinos ni las funciones actuales del sistema.**
+
+No quiero una aplicación nueva ni un rediseño. Quiero completar la aplicación existente utilizando los datos disponibles en las fuentes proporcionadas.
+
+## 2. Reglas obligatorias de modificación
+
+Antes de realizar cambios, inspeccioná la estructura actual de la aplicación, el modelo de datos, los registros existentes y las funciones que ya están implementadas.
+
+Cumplí estas reglas:
+
+1. No modificar, borrar, sobrescribir ni recalcular los datos ovinos existentes.
+2. No cambiar el diseño, la navegación, las pantallas, los nombres de secciones, los filtros, los gráficos, las fórmulas, los indicadores, los umbrales de colores ni las funciones actuales.
+3. No crear una aplicación paralela ni duplicar secciones que ya existen.
+4. Incorporar los datos de bovinos exclusivamente en la sección bovina correspondiente y los de porcinos exclusivamente en la sección porcina correspondiente.
+5. Reutilizar las estructuras y los componentes existentes cuando sea posible.
+6. Completar campos vacíos únicamente cuando exista información suficiente en los archivos de origen para hacerlo.
+7. No sobrescribir un dato existente con otro valor sin verificar primero su categoría, período, unidad y procedencia.
+8. Si un dato de origen contradice otro registro, conservar ambos valores con sus referencias y señalar la discrepancia. No elegir arbitrariamente uno de ellos.
+9. No inventar existencias, cantidades, pesos, costos, precios, porcentajes, fechas, cuentas contables ni resultados.
+10. No reemplazar fórmulas existentes por otras nuevas ni alterar cálculos aprobados que ya utiliza la aplicación.
+11. Si un dato no puede incorporarse con seguridad debido a la estructura actual, conservarlo como información pendiente y explicar qué falta.
+12. Si la aplicación dispone de almacenamiento persistente, utilizar el mecanismo existente y evitar duplicar registros al volver a ejecutar la carga.
+13. Antes de guardar cambios, preservar una copia o mecanismo de recuperación de los datos originales, especialmente de ovinos.
+14. Al terminar, informar qué registros se incorporaron, cuáles quedaron pendientes y qué conflictos se detectaron.
+
+## 3. Organización de los datos
+
+La aplicación debe conservar sus secciones actuales:
+
+- Ovinos: mantener íntegramente los datos existentes.
+- Bovinos: completar la información productiva, las existencias, las categorías, los costos y los datos contables bovinos.
+- Porcinos: incorporar las fases productivas, las categorías, la alimentación, los costos, las existencias y los datos contables porcinos.
+- Ganadería total: integrar bovinos, ovinos y porcinos con los registros válidos de cada especie, sin duplicar animales, movimientos, importes ni categorías.
+
+Cada registro debe quedar asociado, cuando corresponda, a:
+
+- Especie.
+- Categoría animal o insumo.
+- Fase productiva.
+- Fecha o período.
+- Unidad de medida.
+- Cantidad o importe.
+- Cuenta contable.
+- Tipo de dato: productivo, contable, costo, precio de mercado, indicador o dato de referencia.
+- Fuente y estado de validación.
+
+No es obligatorio crear nuevas pantallas para estos campos. Utilizá las estructuras existentes y agregá solo los campos internos imprescindibles para conservar la información correctamente.
+
+## 4. Reglas para completar información faltante
+
+Aplicá las siguientes distinciones:
+
+**A. Datos confirmados por los archivos:** incorporarlos con su valor, categoría, unidad, período y origen.
+
+**B. Datos históricos o correspondientes a un período determinado:** conservar la fecha o el período. No presentarlos como valores actuales.
+
+**C. Precios de mercado:** almacenarlos como referencias de mercado con su fecha y fuente. No utilizarlos automáticamente como valuación contable del stock.
+
+**D. Ejemplos de operaciones:** conservarlos como ejemplos o simulaciones, no como ventas reales ni como movimientos efectivos, salvo que exista confirmación en los registros.
+
+**E. Datos estimados por los autores de los archivos:** conservar la indicación de que son estimaciones.
+
+**F. Datos faltantes:** dejar el campo sin completar o identificarlo como pendiente, según lo permita la aplicación. No reemplazar faltantes con ceros, salvo que la fuente indique expresamente un valor de cero.
+
+**G. Datos calculados por la aplicación:** diferenciarlos de los valores cargados directamente desde los documentos. Utilizar las fórmulas que ya existen y no crear resultados nuevos sin respaldo.
+
+Si un mismo dato aparece con valores distintos, no promediarlo, corregirlo ni sustituirlo automáticamente. Mantener la trazabilidad y señalar la diferencia para su revisión.
+
+# PARTE I — DATOS DE LA UNIDAD PORCINA
+
+Fuente: documento “Estructura Subunidades Porcinas Existencias y Costos”. Establecimiento Pozo del Carril – La Aguada, Grupo 2, Taller de Práctica.
+
+## 5. Fases productivas, categorías y existencias
+
+### Cría
+
+- Categoría SENASA: Lechón.
+- Peso de referencia: 0–15 kg.
+- Período: día 0 al día 31 desde el nacimiento.
+- Duración: 31 días.
+- Cuenta contable: 1.3.03.01 — Lechones.
+
+### Destete
+
+- Categoría SENASA: Cachorro/Cachorra.
+- Peso de referencia: 15–50 kg.
+- Período: día 31 al día 86.
+- Duración: 55 días.
+- Cuenta contable: 1.3.03.02 — Cachorro.
+
+### Engorde
+
+- Categoría SENASA: Capón.
+- Peso de referencia: 50–105 kg.
+- Período: día 86 al día 165.
+- Duración: 79 días.
+- Cuenta contable: 1.3.03.03 — Capones terminados.
+
+Las fases productivas son Cría → Destete → Engorde.
+
+Conservar por separado la clasificación por fase del establecimiento y la clasificación oficial por categoría SENASA, manteniendo su correspondencia.
+
+**Importante:** el documento no informa las cantidades actuales de animales por categoría. No generar un stock porcino a partir de los pesos, la duración de las fases ni los importes de costos.
+
+## 6. Composición de la alimentación por fase
+
+### Cría — Lechón
+
+- Maíz propio: 0%.
+- Concentrado comprado preiniciador: 100%.
+- Soja peleteada: 0%.
+
+### Destete — Cachorro/Cachorra
+
+- Maíz propio: 80%.
+- Concentrado comprado de desarrollo: 10%.
+- Soja peleteada: 10%.
+
+### Engorde — Capón
+
+- Maíz propio: 70%.
+- Concentrado comprado: 0%.
+- Soja peleteada: 30%.
+
+Estos porcentajes representan la composición de la ración, no cantidades consumidas en kilogramos ni costos monetarios.
+
+## 7. Costos porcinos e importes documentados
+
+Incorporar los siguientes valores, conservando su naturaleza y descripción original:
+
+- Alimentación: aproximadamente 78% del costo total.
+- Mano de obra directa: $3.000.000 totales.
+- Distribución de mano de obra: 60% Cría, 30% Destete y 10% Engorde. El documento identifica esta distribución como estimación del grupo según la intensidad del manejo.
+- Energía: $800.000, asignados íntegramente a Cría.
+- Inseminación: $1.487.500, incluida en el prorrateo del plantel reproductor.
+- Vida útil productiva estimada del plantel reproductor: 3,5 años.
+- Transferencia de costos de Cría a Destete: $26.377.259,25.
+
+No asumir que todos estos importes corresponden al mismo período ni que constituyen costos unitarios. Mantenerlos como datos documentados con su contexto.
+
+## 8. Cuentas contables porcinas
+
+### Existencias destinadas a la venta
+
+- 1.3.03 — Existencias: hacienda porcina.
+- 1.3.03.01 — Lechones.
+- 1.3.03.02 — Cachorro.
+- 1.3.03.03 — Capones terminados.
+
+### Activos biológicos de producción y descarte
+
+- 1.4.01 — Plantel de madres.
+- 1.4.02 — Padrillos.
+- 1.4.03 — Amortización acumulada de animales reproductores.
+- 1.4.04 — Cerdas de descarte.
+- 1.4.05 — Padrillos de descarte.
+
+Las madres y los padrillos en producción son activos biológicos utilizados repetidamente para producir. No deben mezclarse con las existencias de animales destinados a la venta.
+
+Las cerdas y los padrillos de descarte se identifican por separado cuando se dan de baja del plantel.
+
+## 9. Costos y gastos porcinos por cuenta
+
+Incorporar la estructura contable documentada:
+
+- 4.3 — Costos ganadería porcina.
+- 4.3.01.01 — Maíz propio — Madres.
+- 4.3.01.02 — Maíz propio — Engorde.
+- 4.3.01.03 — Maíz propio — Destete.
+- 4.3.02.01 — Concentrado preiniciador — Lechones.
+- 4.3.02.02 — Concentrado desarrollo — Destete.
+- 4.3.03.01 — Soja peleteada — Destete.
+- 4.3.03.02 — Soja peleteada — Engorde.
+- 4.3.04 — Sanidad: vacunas y tratamientos.
+- 4.3.06 — Mano de obra directa.
+- 4.3.07 — Amortización/prorrateo del plantel reproductor.
+- 4.3.08 — Energía.
+- 4.3.09 — Comercialización porcina.
+- 4.3.10 — Mortandad, con subcuentas por fase cuando estén disponibles.
+- 4.3.11 — Mantenimiento de instalaciones porcinas.
+- 4.3.12 — Costo de mercadería vendida — Porcinos.
+
+Conservar los criterios de asignación descritos en el documento. No completar importes ausentes por cuenta.
+
+## 10. Transferencias entre fases y criterios de valuación
+
+El costo de un animal no comienza desde cero al pasar de una fase a otra. El costo acumulado se transfiere junto con el animal y la fase siguiente agrega sus propios costos.
+
+El importe de $26.377.259,25 corresponde a la transferencia documentada de Cría a Destete. Conservarlo como dato de referencia de la hoja de resumen, sin atribuirle una fecha o cantidad de animales que no esté informada.
+
+Criterios de valuación descritos:
+
+- Lechón: costo de producción acumulado.
+- Cachorro/Cachorra: costo de producción acumulado, incluido el costo transferido desde Cría.
+- Capón terminado: valor neto de realización (VNR), con referencia ROSPORC indicada en el documento.
+- Plantel de madres y padrillos en actividad: costo acumulado neto de amortización.
+- Animales reproductores de descarte: costo de producción acumulado según el documento.
+
+No calcular un VNR actual sin una cotización aplicable y sus datos de referencia.
+
+# PARTE II — DATOS DE LA UNIDAD BOVINA
+
+Fuente: archivo “Primera entrega — Parte general y específica”. Conservar la distinción entre la información productiva general, las referencias de mercado, la reconstrucción de existencias y los ejemplos de operaciones.
+
+## 11. Fases productivas bovinas
+
+### Cría
+
+- Duración indicada: 180 días (6 meses).
+- Peso de referencia: hasta 160 kg.
+- Consumo diario indicado: 10 kg.
+- Descripción: lactancia al pie de la madre, sobre pasturas y rastrojos, hasta alcanzar el peso de destete.
+- Evento asociado: parición.
+
+### Recría
+
+- Duración indicada: 120 días (4 meses).
+- Peso de referencia: 160–280 kg.
+- Consumo diario indicado: 6 kg.
+- Descripción: crecimiento en pasturas de alfalfa, con aporte de fibra para desarrollar la estructura ósea sin engrase.
+- Evento asociado: destete.
+
+### Adaptación
+
+- Duración indicada: 30 días (1 mes).
+- Peso de referencia: 280–320 kg.
+- Consumo diario indicado: 7 kg.
+- Descripción: acostumbramiento ruminal progresivo, incorporando maíz y rollos para prevenir timpanismo.
+- Criterio de cambio de etapa: por kilogramo o por tiempo.
+
+### Engorde
+
+- Duración indicada: 60 días (2 meses).
+- Peso de referencia: 320–450 kg.
+- Consumo diario indicado: 10 kg.
+- Descripción: alimentación intensiva en corral con ración de maíz, soja y concentrado hasta la terminación comercial.
+- Criterio de cambio de etapa: por kilogramo o por tiempo.
+
+La duración total indicada es de 390 días (13 meses).
+
+Los pesos, consumos y duraciones son datos de referencia del documento. No suponer que los consumos diarios son efectivamente medidos para cada animal ni calcular consumo acumulado si la planilla no especifica la base de cálculo.
+
+## 12. Categorías bovinas utilizadas en la planilla
+
+Conservar las categorías originales:
+
+- Vacas.
+- Vacas secas.
+- Vacas preñadas.
+- Vaquillona 1.
+- Vaquillona 2.
+- Terneros.
+- Terneras.
+- Destete.
+- Novillitos.
+- Novillos.
+- Toros.
+- Toritos.
+
+No fusionar automáticamente categorías distintas aunque tengan características similares.
+
+## 13. Precios de referencia bovinos
+
+La parte general contiene estos precios con referencia al 08/09 y fuente indicada Mercado Agroganadero:
+
+- Vaquillona: $4.662,75.
+- Vaca: $3.354,18.
+- Toro: $3.429,47.
+- Novillo: $4.496,34.
+- Ternero: sin precio consignado en esa tabla.
+
+La hoja de referencias de mercado contiene además los siguientes promedios:
+
+- Novillos especiales jóvenes, más de 430 kg: $4.262/kg.
+- Novillos regulares, hasta 430 kg: $3.841/kg.
+- Novillos regulares, más de 430 kg: $3.918/kg.
+- Novillitos especiales, hasta 390 kg: $4.516/kg.
+- Novillitos especiales, más de 390 kg: $4.401/kg.
+- Novillitos regulares: $4.132/kg.
+- Vaquillonas especiales, hasta 390 kg: $4.521/kg.
+- Vaquillonas especiales, más de 390 kg: $3.912/kg.
+- Vaquillonas regulares: $3.786/kg.
+- Vacas especiales jóvenes, hasta 430 kg: $2.966/kg.
+- Vacas especiales jóvenes, más de 430 kg: $3.424/kg.
+- Vacas regulares: $2.992/kg.
+- Vacas conserva buena: $2.674/kg.
+- Vacas conserva inferior: $2.739/kg.
+- Toros especiales: $3.698/kg.
+- Toros regulares: $3.192/kg.
+- MEJ especiales, hasta 430 kg: $4.165/kg.
+- MEJ regulares: $3.471/kg.
+
+Fuente indicada para la tabla adicional: consignatarias.com.ar, mercado de Cañuelas.
+
+Conservar las categorías, los importes, la unidad y la fecha tal como están disponibles. La fecha 08/09 no contiene año explícito en el dato transcripto; no asignarle uno por inferencia.
+
+Estos precios son referencias de mercado. No deben usarse automáticamente como valores contables del stock bovino.
+
+## 14. Porcentajes de costos y erogaciones bovinas
+
+La parte general informa:
+
+- Alimentación — granos: 70%.
+- Reservas forrajeras — silaje de maíz: 8%.
+- Reservas forrajeras — rollos de alfalfa: 7%.
+- Flete ganadero compartido: 5%.
+- Comisiones de feria: 5%.
+- Sanidad — honorarios veterinarios: 0%.
+- Sanidad — vacunación: 2%.
+- Mano de obra: 3%.
+
+Conservar estos porcentajes exactamente como están informados. No recalcularlos ni ajustarlos para que sumen otro total.
+
+Observaciones cualitativas:
+
+- El flete se comparte con otro productor local debido a la baja escala del lote.
+- Los honorarios veterinarios corresponden a veterinarios de la UNRC.
+- La vacunación se estima en alrededor de $2.000 por vacuna por cabeza.
+- La mano de obra se relaciona principalmente con el mantenimiento del campo: postes, varillas y alambres.
+
+## 15. Cuentas contables bovinas
+
+### Existencias de hacienda
+
+- 1.3.01.01 — Terneros al pie de la madre.
+- 1.3.01.02 — Terneras al pie de la madre.
+- 1.3.01.03 — Novillitos recría a pasto.
+- 1.3.01.04 — Novillos en adaptación ruminal.
+- 1.3.01.05 — Novillos terminación corral (450 kg).
+- 1.3.01.06 — Vaquillonas descarte comercial.
+- 1.3.01.07 — Vacas descarte (rechazo tacto).
+- 1.3.01.08 — Toros de descarte.
+
+### Insumos y reservas
+
+- 1.3.02.01 — Maíz grano propio almacenado.
+- 1.3.02.02 — Núcleo mineral y premezclas.
+- 1.3.02.03 — Grano de soja suplemento.
+- 1.3.02.04 — Silaje de maíz en bolsón.
+- 1.3.02.05 — Rollos de pastura / forrajes.
+- 1.3.02.06 — Productos veterinarios y vacunas.
+
+### Otras cuentas
+
+- 1.3.03 — Hacienda de terceros.
+- 1.4.01.01 — Vacas madres Angus PC en producción.
+- 1.4.01.02 — Vaquillonas reposición para cabaña.
+- 1.4.01.03 — Toros padres de cabaña.
+
+Mantener separadas las existencias destinadas a comercialización, los insumos y reservas, la hacienda de terceros y los activos biológicos reproductores.
+
+La hacienda de terceros no debe sumarse al patrimonio propio ni a los indicadores de existencias propias.
+
+## 16. Costos bovinos y gastos de comercialización
+
+Conservar los conceptos existentes en el plan de cuentas:
+
+### Alimentación
+
+- Maíz propio consumido.
+- Granos de soja.
+- Núcleo mineral con monensina.
+- Silaje de maíz.
+- Rollos.
+- Alfalfa.
+- Otras pasturas.
+
+### Sanidad
+
+- Vacunación antiaftosa.
+- Vacunación antibrucélica.
+- Antiparasitarios y carminativos.
+- Vacuna reproductiva.
+- Vacuna diarrea neonatal.
+- Vacuna carbunclo.
+- Vacuna respiratoria.
+- Vacuna clostridial.
+- Vacuna brucelosis.
+
+### Otros costos productivos e indirectos
+
+- Semen e inseminación.
+- Mortandad.
+- Amortización de reproductores.
+- Mantenimiento de tolvas, aguadas y mangas.
+- Mano de obra.
+- Energía y estructura.
+
+### Gastos de comercialización
+
+- Comisión de la casa consignataria de feria.
+- Flete de hacienda a feria mediante camión jaula.
+- Derechos de pista y pesaje de feria.
+- Aranceles SENASA, DTe y guías.
+
+Estos conceptos no equivalen a importes registrados. Si el archivo no aporta un monto, mantener el concepto identificado pero sin importe inventado.
+
+## 17. Movimientos y reconstrucción de existencias bovinas
+
+La planilla contempla estos movimientos:
+
+- Nacimiento.
+- Compra.
+- Venta.
+- Traslado.
+- Cambio de etapa.
+- Cambio de categoría.
+- Muerte.
+- Descarte.
+
+El archivo presenta una reconstrucción para el período 22/06/2026 al 30/09/2026:
+
+- Stock inicial propio informado: 129 cabezas.
+- Compras: 40 cabezas.
+- Nacimientos: 0.
+- Ingresos: 6 cabezas.
+- Egresos: 0.
+- Ventas: 1 cabeza.
+- Muertes: 0.
+- Stock final propio informado: 174 cabezas.
+
+Detalle por categoría:
+
+- Vacas: stock inicial 57; compras 10; stock final 67.
+- Vacas secas: stock inicial 0; stock final 0.
+- Vacas preñadas: stock inicial 0; stock final 0.
+- Vaquillona 1: stock inicial 11; compras 30; stock final 41.
+- Vaquillona 2: stock final 0.
+- Terneros: stock inicial 41; stock final 41.
+- Terneras: stock inicial 16; stock final 16.
+- Destete: stock final 0.
+- Novillitos: stock final 0.
+- Novillos: stock inicial 0; stock final 0.
+- Toros: stock inicial 4; ingresos 6; ventas 1; stock final 9.
+- Toritos: stock inicial 0; stock final 0.
+
+**Advertencia obligatoria:** estos datos corresponden a una reconstrucción para un período determinado. El archivo señala inconsistencias en la planilla original entre el stock inicial y el final. No utilizar las 174 cabezas como stock actual confirmado ni reemplazar el stock que ya tenga cargado Agrogestiona.
+
+Conservar esta reconstrucción como dato histórico pendiente de validación. Si la aplicación no tiene una función para registrar datos históricos sin alterar el stock actual, dejarla como información de referencia hasta poder incorporarla correctamente.
+
+La planilla indica que el stock final de una campaña debe trasladarse al stock inicial de la campaña siguiente. Hacerlo únicamente cuando la continuidad temporal y los movimientos estén confirmados.
+
+## 18. Ejemplo documentado de venta bovina y valuación
+
+El archivo incluye un ejemplo de venta de 15 novillos terminados:
+
+- Cantidad: 15 animales.
+- Peso individual: 450 kg.
+- Peso total: 6.750 kg.
+- Precio por kg: $4.496,34.
+- Importe bruto de la operación: $30.350.295.
+
+Costos de venta del ejemplo:
+
+- Comisión de la casa consignataria: $910.508,85.
+- Flete a feria: $1.200.000.
+- Derechos de pista y pesaje: $151.751,475.
+- Aranceles SENASA, DTe y guías: $35.000.
+- Total de costos de venta: $2.297.260,325.
+
+Otros datos del ejemplo:
+
+- IVA débito fiscal (10,5% hacienda): $3.186.780,975.
+- Valor neto de realización (VNR) indicado: $28.053.034,68.
+
+Conservar este conjunto como ejemplo de operación incluido en el documento. No registrarlo como venta real ni utilizarlo para descontar animales del stock existente, salvo que se encuentre confirmado en los movimientos reales.
+
+## 19. Indicadores bovinos contemplados en la planilla
+
+Conservar las estructuras existentes de indicadores relacionados con:
+
+- Stock total en cantidad de animales.
+- Kilogramos físicos en stock.
+- Valor estimado del stock.
+- Peso promedio por animal.
+- Ganancia diaria de peso promedio (kg/día).
+- Costo de alimentación.
+- Costo de sanidad.
+- Otros costos productivos.
+- Ingresos netos por ventas.
+- Costo por kilogramo agregado.
+- Margen incremental.
+- Decisión automática de conveniencia de terminar el animal.
+
+En la hoja de decisión de engorde aparecen estos parámetros:
+
+- Peso de venta liviano: 140 kg.
+- Peso objetivo terminado: 450 kg.
+- Diferencia de peso entre ambos objetivos: 310 kg.
+
+La decisión registrada en esa hoja es “VENDER LIVIANO”. Sin embargo, existen datos faltantes y un error de referencia (#REF!) en una hoja de resumen. Conservar la decisión original como resultado de esa hoja, no como recomendación vigente ni como una conclusión económica validada.
+
+No corregir las fórmulas existentes ni generar decisiones nuevas en esta tarea.
+
+## 20. Datos bovinos pendientes de completar o confirmar
+
+La planilla identifica como información relevante:
+
+- Cabezas por categoría a la fecha.
+- Terneros nacidos por año y porcentaje de destete.
+- Precio del ternero de 140 kg, con fecha.
+- Precio del novillo terminado, con fecha.
+- Composición de la ración y costo por kilogramo.
+- Kilogramos de ración por kilogramo de peso ganado.
+- Gasto anual de sanidad por cabeza.
+- Mortandad por categoría.
+- Comisiones y gastos de venta en feria.
+- Qué animales se venden como reproductores y a qué valor.
+- Superficie forestada y producción de madera.
+- Criterio de valuación de la hacienda en existencia.
+
+Si estos campos están vacíos en Agrogestiona y no hay información adicional en las fuentes disponibles, dejarlos identificados como pendientes. No utilizar cero como sustituto automático de un valor desconocido.
+
+# PARTE III — INTEGRACIÓN EN AGROGESTIONA
+
+## 21. Integración de bovinos y porcinos con los datos existentes
+
+Una vez incorporados los registros, verificar que:
+
+- La sección bovina muestre sus categorías, fases, datos de stock y cuentas contables.
+- La sección porcina muestre las fases Cría, Destete y Engorde, las categorías SENASA, los datos de alimentación, costos y cuentas contables.
+- La sección ovina conserve exactamente sus datos originales.
+- La vista total de ganadería reúna los registros válidos de las especies sin contar dos veces el mismo animal.
+- Las cantidades se expresen en las unidades adecuadas: cabezas, kilogramos, días, porcentajes o importes monetarios.
+- Los costos, ingresos, existencias, activos biológicos, insumos y precios de mercado permanezcan diferenciados.
+- Los datos históricos y los ejemplos no se mezclen con el stock actual.
+- Las categorías bovinas y porcinas no se mezclen entre sí.
+- La hacienda de terceros no se incorpore a las existencias propias.
+- Los animales reproductores no se confundan con las existencias destinadas a la venta.
+- Los campos faltantes sigan identificados como pendientes, sin valores ficticios.
+- Los indicadores existentes utilicen los registros de la especie correspondiente, sin alterar las fórmulas que ya funcionan.
+
+## 22. Qué hacer con los datos que no coincidan con la estructura actual
+
+Si Agrogestiona ya tiene un campo equivalente, completar el campo existente.
+
+Si un dato no tiene un campo adecuado, incorporarlo únicamente mediante una extensión compatible con el modelo actual. No rehacer la aplicación ni agregar pantallas innecesarias.
+
+Si existen valores contradictorios entre el sistema y los documentos, no reemplazar automáticamente el valor existente. Identificar el dato, su fuente, su fecha y la discrepancia para revisión.
+
+Si una fórmula, un indicador o un gráfico depende de información que todavía no está disponible, mantener su comportamiento actual y señalar el dato faltante, sin inventar resultados.
+
+## 23. Verificaciones finales obligatorias
+
+Antes de finalizar:
+
+1. Comparar los datos ovinos anteriores con los posteriores a la carga y comprobar que no hayan cambiado.
+2. Verificar que los registros bovinos y porcinos se encuentren en las secciones correctas.
+3. Verificar que los datos históricos y los ejemplos no hayan generado movimientos reales de stock.
+4. Verificar que los precios de mercado no se hayan utilizado automáticamente como valuaciones contables.
+5. Verificar que no se hayan inventado cantidades, importes o fechas.
+6. Comprobar que no se hayan duplicado registros al importar la información.
+7. Confirmar que las pantallas, los filtros, los gráficos y los indicadores existentes sigan funcionando.
+8. Verificar que la vista total de ganadería integre correctamente las especies sin duplicar registros.
+9. Elaborar un resumen de los datos agregados, los datos pendientes, las discrepancias y las verificaciones realizadas.
+
+## 24. Resultado esperado
+
+Quiero que Agrogestiona quede más completa y mejor organizada con los datos documentados de bovinos y porcinos, conservando íntegramente la información ovina y todas las funcionalidades actuales.
+
+La prioridad es completar los registros faltantes con información respaldada, mantener los datos contables y productivos correctamente clasificados y conservar la trazabilidad de cada dato.
+
+**No cambies lo que ya funciona. No reemplaces los datos existentes. No inventes información. Incorporá lo que falta cuando exista respaldo documental y dejá identificado lo que todavía necesita confirmación.**

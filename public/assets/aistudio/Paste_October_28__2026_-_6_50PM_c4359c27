@@ -1,0 +1,669 @@
+# PROMPT MAESTRO — REDISEÑO Y MEJORA INTEGRAL DE AGROGESTIONA ERP
+
+## 1. CONTEXTO Y OBJETIVO GENERAL
+
+Necesito que trabajes sobre mi sistema existente **AGROGESTIONA ERP**, una plataforma de gestión ganadera orientada al control de existencias, producción, sanidad, trazabilidad y gestión económica de las especies ovina, bovina y porcina.
+
+Tu objetivo es mejorar integralmente el sistema, tanto en su diseño visual y experiencia de usuario como en su funcionamiento técnico, integraciones externas, seguridad y capacidad de personalización.
+
+**IMPORTANTE:** No quiero solamente una propuesta visual, una maqueta o una simulación. Necesito que implementes los cambios sobre el código y la arquitectura existentes, conservando las funcionalidades actuales que no solicité eliminar.
+
+Antes de realizar modificaciones:
+- Analizá la estructura actual del proyecto.
+- Identificá las pantallas, módulos, componentes, rutas, servicios, base de datos e integraciones existentes.
+- Revisá cómo funcionan actualmente la autenticación, los roles, los permisos y la conexión con Google Sheets.
+- Identificá las funcionalidades que ya son reales y aquellas que solamente están simuladas.
+- Implementá los cambios de forma compatible con la tecnología utilizada actualmente.
+
+No reemplaces funcionalidades existentes por datos ficticios, botones decorativos ni pantallas que aparenten funcionar sin hacerlo.
+
+---
+
+## 2. PANTALLA DE INICIO Y LOGIN
+
+Quiero rediseñar completamente la pantalla de inicio de sesión.
+
+### Cambios solicitados
+
+1. Eliminar todo el texto descriptivo o promocional que actualmente aparece en la pantalla de inicio, incluyendo el bloque que presenta el nombre del sistema, su descripción y las tarjetas informativas.
+
+2. Colocar una imagen de fondo de alta calidad que represente visualmente la actividad ganadera del sistema:
+   - Ganadería ovina: ovejas y corderos.
+   - Ganadería bovina: vacas y terneros.
+   - Ganadería porcina: cerdos.
+   - Entorno rural, campos, instalaciones ganaderas y producción agropecuaria.
+
+3. La imagen debe transmitir profesionalismo, tecnología, confianza y gestión empresarial agropecuaria. Evitar ilustraciones infantiles, imágenes genéricas de oficinas o diseños que no representen la actividad.
+
+4. Utilizar una composición visual atractiva, con una imagen que ocupe el fondo de la pantalla y permita distinguir claramente el formulario de acceso.
+
+5. Mantener exclusivamente en la pantalla de inicio:
+   - El formulario para iniciar sesión.
+   - Los campos de usuario o correo electrónico y contraseña, según el mecanismo de autenticación existente.
+   - El botón para iniciar sesión.
+   - Las opciones indispensables para recuperar la contraseña, si ya existen.
+   - El logotipo del sistema, únicamente si contribuye al diseño.
+
+6. Eliminar las descripciones comerciales, los textos institucionales extensos, las tarjetas de características y cualquier otro elemento que distraiga del inicio de sesión.
+
+7. Garantizar que el formulario sea legible, que tenga suficiente contraste con el fondo y que se adapte correctamente a computadoras, tablets y celulares.
+
+8. No modificar ni debilitar el sistema de autenticación existente. El rediseño visual no debe afectar la seguridad del inicio de sesión.
+### 2.1. Gestión de sesiones y opción “Mantener sesión iniciada”
+
+Necesito modificar el comportamiento de las sesiones de usuario para que el sistema sea seguro y permita elegir si se desea mantener la sesión activa.
+
+**Objetivo principal:** cuando el usuario salga de Agrogestiona ERP, la sesión debe cerrarse por defecto y no debe quedar activa indefinidamente. Sin embargo, al volver a ingresar, debe existir una opción explícita para mantener la sesión iniciada.
+
+#### A. Cierre de sesión al salir de la aplicación
+
+Implementar un mecanismo real de gestión de sesiones con los siguientes comportamientos:
+
+- Por defecto, cuando el usuario abandone la aplicación o cierre el navegador, la sesión no debe permanecer activa de manera indefinida.
+- Incorporar un mecanismo para detectar el cierre de la aplicación o la salida del usuario cuando técnicamente sea posible.
+- Cuando se detecte que el usuario está saliendo de la aplicación sin haber elegido mantener la sesión iniciada, intentar cerrar la sesión y revocar o invalidar las credenciales de sesión correspondientes, según la arquitectura existente.
+- Si el usuario presiona el botón “Cerrar sesión”, finalizar la sesión inmediatamente, invalidar las credenciales que corresponda y redirigirlo a la pantalla de inicio.
+- Después del cierre de sesión, impedir que el usuario vuelva a acceder a las pantallas privadas utilizando el botón Atrás del navegador, una URL guardada o una vista que hubiera quedado en memoria.
+- Cuando corresponda, evitar que las pantallas privadas se muestren desde la caché después de cerrar sesión.
+- Mantener los datos y operaciones guardados en el sistema; cerrar la sesión no debe eliminar información del usuario ni deshacer operaciones ya confirmadas.
+
+No cerrar la sesión al navegar entre módulos, cambiar de pestaña dentro del ERP o abrir una pantalla interna. El cierre debe estar asociado a la salida efectiva de la aplicación o al mecanismo de seguridad correspondiente, no a la navegación normal.
+
+#### B. Opción para mantener la sesión iniciada
+
+En la pantalla de inicio de sesión, agregar una casilla de selección visible con el texto:
+
+**“Mantener la sesión iniciada”**
+
+La casilla debe estar desmarcada por defecto.
+
+Su funcionamiento debe ser el siguiente:
+
+**Si el usuario NO marca la casilla:**
+- Iniciar una sesión normal y temporal.
+- No mantener una sesión persistente mediante almacenamiento duradero del navegador.
+- Al salir de la aplicación, cerrar la sesión cuando sea técnicamente posible.
+- Si el usuario vuelve a ingresar después de que la sesión haya finalizado, solicitar nuevamente sus credenciales.
+
+**Si el usuario SÍ marca la casilla:**
+- Permitir que la sesión persista al cerrar y volver a abrir la aplicación, dentro de un plazo de vigencia definido.
+- Al volver a entrar, recuperar la sesión de forma segura si las credenciales continúan vigentes y válidas.
+- No solicitar nuevamente las credenciales en cada ingreso mientras se cumplan las condiciones de seguridad y vigencia.
+- Permitir que el usuario cierre la sesión manualmente en cualquier momento.
+- Respetar los cambios de roles y permisos aunque la sesión continúe iniciada.
+- Finalizar la sesión si se revoca el acceso, se invalida la credencial o se cumple el plazo de expiración correspondiente.
+
+La opción debe modificar el comportamiento real de autenticación y persistencia. No debe ser solamente un elemento visual sin efecto.
+
+#### C. Implementación técnica y seguridad
+
+Analizar el mecanismo de autenticación existente antes de modificarlo y adaptar la solución a la tecnología utilizada por el proyecto.
+
+- Utilizar sesiones seguras o tokens con vencimiento y mecanismos de renovación controlados.
+- Cuando se utilicen cookies de autenticación, emplear las medidas de seguridad adecuadas, como `HttpOnly`, `Secure` cuando corresponda y una política `SameSite` apropiada.
+- No almacenar contraseñas, claves privadas ni tokens sensibles en texto plano o en mecanismos de almacenamiento accesibles innecesariamente desde JavaScript.
+- Si se utiliza una sesión persistente, aplicar tiempos de expiración definidos y mecanismos seguros de revocación.
+- Diferenciar las sesiones temporales de aquellas que el usuario solicita mantener iniciadas.
+- Implementar la validación de sesión en el backend para las operaciones protegidas, no solamente en el frontend.
+- Si la sesión venció o fue revocada, redirigir al usuario al inicio de sesión y mostrar un mensaje claro.
+- Si existen varios dispositivos o navegadores conectados con la misma cuenta, respetar la política de sesiones ya definida y no cerrar otras sesiones accidentalmente, salvo que la política de seguridad establezca expresamente lo contrario.
+
+**Importante:** no depender exclusivamente de eventos del navegador para garantizar el cierre de sesión. Algunos navegadores o sistemas operativos pueden suspender o finalizar la aplicación sin ejecutar esos eventos. Complementar la detección de salida con vencimiento de sesión, validación en el servidor y revocación de credenciales cuando corresponda.
+
+No prometer un cierre instantáneo imposible de garantizar cuando el navegador se cierra abruptamente. Implementar un comportamiento seguro y verificable que se ajuste a las capacidades de la arquitectura actual.
+
+#### D. Pruebas de aceptación obligatorias
+
+Verificar con pruebas reales los siguientes escenarios:
+
+1. El usuario inicia sesión sin marcar “Mantener la sesión iniciada”, sale de la aplicación y vuelve a ingresar. Si la sesión ya finalizó, debe solicitar nuevamente sus credenciales.
+
+2. El usuario inicia sesión marcando “Mantener la sesión iniciada”, cierra el navegador, vuelve a abrir la aplicación y conserva la sesión si sigue siendo válida y está dentro del plazo autorizado.
+
+3. El usuario presiona “Cerrar sesión”. La sesión debe finalizar y no debe ser posible volver a las pantallas privadas mediante una URL directa o el botón Atrás.
+
+4. La sesión vence por tiempo o es revocada. El usuario debe tener que autenticarse nuevamente.
+
+5. Se modifican los permisos de un usuario que mantiene una sesión activa. La aplicación debe aplicar las nuevas restricciones sin depender de que el usuario cierre sesión voluntariamente.
+
+6. Se produce un error de conexión durante la renovación de una sesión persistente. La aplicación debe actuar de forma segura, informar el problema y no conceder acceso sin validar la autenticación.
+
+7. La casilla “Mantener la sesión iniciada” conserva su comportamiento después de actualizar la página y reiniciar el navegador.
+
+8. El cierre de sesión no debe borrar la información productiva, contable ni económica almacenada en el ERP.
+
+**Criterio final de aceptación:** al ingresar, el usuario puede elegir expresamente si desea mantener su sesión iniciada. Si no lo elige, debe utilizarse una sesión temporal que no permanezca activa indefinidamente después de abandonar la aplicación. Si lo elige, la sesión podrá persistir de forma segura mientras siga vigente, sin impedir el cierre de sesión manual ni la aplicación efectiva de los permisos.
+---
+
+## 3. MÓDULOS DEL SISTEMA: ORGANIZACIÓN Y NAVEGACIÓN
+
+### 3.1. Eliminar la numeración de los módulos
+
+Los módulos no deben aparecer enumerados con números consecutivos.
+
+Eliminar números como 1, 2, 3, etc., que se utilicen únicamente para ordenar o identificar visualmente los módulos.
+
+Los módulos deben identificarse mediante:
+- Nombre descriptivo.
+- Icono representativo.
+- Diseño visual consistente.
+- Indicadores de estado, cuando corresponda.
+
+El orden debe depender de la configuración elegida por el usuario, no de una numeración fija.
+
+### 3.2. Cambiar el nombre de “Indicadores y CMI”
+
+Reemplazar el título actual “Indicadores y CMI” por un nombre comercial, moderno, fácil de recordar y atractivo para los usuarios.
+
+Nombre propuesto: **“Centro de Inteligencia Ganadera”**.
+
+Este módulo debe transmitir la idea de que el usuario puede comprender el rendimiento del establecimiento, analizar resultados y tomar decisiones basadas en información.
+
+Si resulta compatible con las funcionalidades existentes, también puede utilizarse el subtítulo “Resultados, rentabilidad y decisiones”.
+
+No cambiar la lógica ni eliminar las funcionalidades que actualmente contiene el módulo. El cambio de nombre debe ser coherente en el menú, encabezados, navegación, permisos y demás referencias visuales.
+
+### 3.3. Eliminar la pestaña “Utilidades”
+
+Eliminar la pestaña o módulo “Utilidades” de la navegación del sistema.
+
+También deben eliminarse sus accesos y referencias visuales innecesarias.
+
+Antes de borrar código, verificar si alguna funcionalidad de esa sección es utilizada por otros módulos. No eliminar servicios compartidos ni dependencias necesarias para el funcionamiento general del ERP.
+
+### 3.4. Incorporar personalización del menú
+
+Agregar un botón visible denominado **“Personalizar mi menú”**, acompañado de un icono apropiado.
+
+Al presionarlo, abrir una ventana, panel lateral o cuadro de configuración donde cada usuario pueda decidir qué módulos quiere visualizar.
+
+El panel debe permitir:
+
+- Ver la lista completa de módulos disponibles para ese usuario.
+- Mostrar un interruptor, casilla de selección o control equivalente para cada módulo.
+- Activar o desactivar individualmente la visualización de cada módulo.
+- Ocultar los módulos que no sean de interés.
+- Volver a mostrar los módulos ocultos cuando el usuario lo desee.
+- Reordenar los módulos mediante arrastrar y soltar, o mediante controles accesibles para subir y bajar su posición.
+- Guardar los cambios.
+- Cancelar los cambios sin aplicarlos.
+- Restaurar la configuración predeterminada.
+
+La personalización debe persistir al cerrar sesión, iniciar sesión nuevamente o actualizar el navegador.
+
+Guardar la configuración de forma individual para cada usuario autenticado, utilizando la base de datos existente o el mecanismo persistente adecuado para la arquitectura actual.
+
+**Diferenciar dos conceptos:**
+- Ocultar un módulo es una preferencia de visualización.
+- No tener permiso para acceder a un módulo es una restricción de seguridad.
+
+Un módulo oculto puede volver a mostrarse si el usuario tiene permiso para utilizarlo. Un módulo para el cual el usuario no tiene autorización nunca debe quedar accesible por el simple hecho de modificar la personalización del menú.
+
+La configuración debe aplicarse de manera coherente al menú lateral, la navegación, los accesos directos y las demás vistas que presenten módulos.
+
+---
+
+## 4. DISEÑO VISUAL Y EXPERIENCIA DE USUARIO
+
+Quiero que el sistema tenga una apariencia moderna, profesional, dinámica e intuitiva, adecuada para un ERP agropecuario.
+
+### 4.1. Diseño general
+
+Mantener la identidad visual de Agrogestiona ERP, utilizando una estética vinculada al sector agropecuario y a la gestión empresarial.
+
+Se puede conservar una paleta basada en verdes oscuros, verdes naturales, fondos neutros y colores de acento para acciones e indicadores.
+
+El diseño debe transmitir:
+- Profesionalismo.
+- Orden.
+- Tecnología.
+- Claridad.
+- Confianza.
+- Facilidad de uso.
+
+Evitar una interfaz excesivamente recargada, con demasiados bordes, tarjetas, colores, títulos o bloques de texto.
+
+### 4.2. Aumentar moderadamente el tamaño de las letras
+
+Ajustar la tipografía para mejorar la legibilidad en computadoras, tablets y celulares.
+
+Como referencia inicial:
+- Texto general: entre 15 y 16 px.
+- Etiquetas y campos de formularios: entre 15 y 16 px.
+- Títulos de secciones: entre 20 y 24 px.
+- Títulos principales: entre 26 y 32 px.
+- Botones: entre 15 y 16 px.
+
+Estos valores son orientativos y deben adaptarse a la estructura real de cada pantalla.
+
+Evitar textos demasiado pequeños, especialmente en tablas, formularios, filtros, indicadores y configuraciones.
+
+### 4.3. Diseño responsive real
+
+Todo el sistema debe adaptarse correctamente a distintos tamaños de pantalla.
+
+Implementar y verificar, como mínimo, los siguientes escenarios:
+- Computadoras de escritorio.
+- Notebooks.
+- Tablets en orientación vertical y horizontal.
+- Celulares pequeños.
+- Celulares de pantalla grande.
+
+En dispositivos móviles:
+- Adaptar el menú lateral mediante un panel desplegable o mecanismo equivalente.
+- Evitar que el menú ocupe permanentemente espacio innecesario.
+- Reorganizar las tarjetas y los indicadores según el ancho disponible.
+- Evitar desbordamientos horizontales de toda la página.
+- Adaptar tablas extensas mediante desplazamiento horizontal localizado, columnas prioritarias o una vista alternativa de tarjetas.
+- Hacer que los botones y controles táctiles sean cómodos de utilizar.
+- Evitar que los títulos se superpongan con botones o iconos.
+- Mantener las proporciones, jerarquía visual y orden lógico del sistema.
+- Adaptar los formularios para que sean fáciles de completar desde el celular.
+
+No resolver el diseño responsive simplemente reduciendo el tamaño de toda la interfaz. Reorganizar los componentes según el dispositivo.
+
+### 4.4. Menos texto y menos repetición
+
+Reducir el contenido textual innecesario en todas las pantallas.
+
+Eliminar:
+- Descripciones extensas que repitan el título de una sección.
+- Explicaciones redundantes.
+- Mensajes comerciales repetidos.
+- Textos que no ayuden a ejecutar una acción o interpretar un resultado.
+- Instrucciones permanentes que puedan reemplazarse por etiquetas claras, iconos comprensibles o ayudas contextuales.
+
+Priorizar títulos breves, etiquetas precisas, mensajes de estado claros y ayudas que aparezcan cuando sean necesarias.
+
+No eliminar información operativa, advertencias relevantes, requisitos legales ni explicaciones indispensables para comprender cálculos o realizar operaciones correctamente.
+
+### 4.5. Mayor interactividad
+
+Hacer que la plataforma sea más atractiva y práctica mediante:
+- Tarjetas de indicadores con información relevante.
+- Filtros interactivos.
+- Búsquedas rápidas.
+- Formularios claros.
+- Confirmaciones antes de operaciones importantes.
+- Notificaciones de éxito, advertencia o error.
+- Estados de carga durante operaciones reales.
+- Mensajes que expliquen cómo resolver un error.
+- Gráficos interactivos cuando aporten valor.
+- Actualización visible de datos después de guardar operaciones.
+
+Las animaciones deben ser discretas y no perjudicar el rendimiento.
+
+Cada botón debe ejecutar una acción real. No dejar botones decorativos que no respondan a una interacción.
+
+---
+
+## 5. INTEGRACIÓN REAL CON GOOGLE SHEETS
+
+Necesito que la vinculación con una hoja de cálculo de Google Sheets sea funcional y confiable.
+
+No quiero una integración simulada que muestre información estática o datos cargados manualmente dentro de la interfaz.
+
+### 5.1. Comportamiento esperado
+
+Cuando el sistema esté vinculado a una hoja de cálculo activa, debe permitir sincronizar los datos de esa hoja con el ERP.
+
+El flujo esperado es:
+
+1. El usuario modifica información en Google Sheets.
+2. Guarda los cambios en la hoja.
+3. Ingresa al ERP y utiliza la acción de actualizar o sincronizar la vinculación con Sheets.
+4. El sistema obtiene los datos actualizados de la hoja.
+5. Los datos se validan y procesan.
+6. Los módulos afectados muestran la información actualizada.
+
+La actualización debe afectar todas las vistas, indicadores, tablas y cálculos que dependan de los datos modificados.
+
+### 5.2. Implementación técnica
+
+Revisar la integración existente y completar los componentes necesarios para que la sincronización funcione realmente.
+
+Implementar, según corresponda a la arquitectura actual:
+- Conexión autenticada con Google Sheets.
+- Identificación del archivo y de las hojas que utiliza el sistema.
+- Lectura de datos actualizados desde la fuente real.
+- Mapeo de columnas de Sheets con los campos del ERP.
+- Validación de tipos de datos y campos obligatorios.
+- Tratamiento de fechas, números, importes, porcentajes y valores vacíos.
+- Actualización de los registros correspondientes.
+- Manejo de errores de conexión y permisos.
+- Registro de la última sincronización exitosa.
+- Indicación visual del estado de la conexión.
+- Mensajes de éxito o error que describan el resultado real.
+
+Si la integración utiliza Google Sheets API, configurar las credenciales, autorizaciones y permisos correspondientes de manera segura.
+
+No exponer claves privadas, credenciales de servicio, tokens de acceso ni secretos en el código del cliente o en variables públicas.
+
+Si se utiliza un backend, ejecutar allí las operaciones que requieran credenciales privilegiadas.
+
+### 5.3. Botón de sincronización
+
+Incorporar o mejorar el botón **“Sincronizar con Google Sheets”**.
+
+Al ejecutarlo:
+- Mostrar un estado de procesamiento.
+- Consultar la hoja de cálculo real.
+- Validar los datos obtenidos.
+- Aplicar los cambios correctamente.
+- Actualizar las vistas y cálculos dependientes.
+- Informar cuántos registros se actualizaron, agregaron o rechazaron, cuando esa información esté disponible.
+- Mostrar la fecha y hora de la última sincronización exitosa.
+- Informar errores sin presentar una sincronización fallida como exitosa.
+
+Si la hoja no está vinculada, solicitar la configuración necesaria en lugar de simular la conexión.
+
+### 5.4. Integridad y seguridad de los datos
+
+La sincronización no debe sobrescribir indiscriminadamente información del ERP.
+
+Antes de implementarla, definir:
+- Qué campos son administrados por Google Sheets.
+- Qué campos son administrados por el ERP.
+- Cómo se identifican de forma única los registros.
+- Cómo se resuelven los duplicados.
+- Qué sucede si se elimina un registro en la hoja.
+- Qué sucede si un registro fue modificado simultáneamente en ambos sistemas.
+
+No eliminar registros por su ausencia en una hoja salvo que esa conducta esté expresamente definida y confirmada.
+
+Registrar los errores y resultados de sincronización para permitir su auditoría.
+
+**Criterio de aceptación:** si modifico un dato en Sheets y luego ejecuto la sincronización, el sistema debe reflejar el cambio en los lugares correspondientes. Este comportamiento debe probarse con datos reales de prueba, no únicamente con ejemplos estáticos.
+
+---
+
+## 6. CASOS DE ACEPTACIÓN REALES
+
+Necesito que los casos de aceptación del sistema sean funcionales, verificables y estén conectados con el comportamiento real del ERP.
+
+No deben ser simples ejemplos de texto, listas ilustrativas o estados marcados automáticamente como aprobados.
+
+### Requisitos
+
+1. Identificar dónde se encuentran actualmente los casos de aceptación y cómo están implementados.
+
+2. Si se trata de pruebas de aceptación funcional, definir y ejecutar escenarios que verifiquen el comportamiento real de la aplicación.
+
+3. Si se trata de un módulo de gestión de casos de aceptación, mantenerlo como una funcionalidad operativa para registrar, editar, ejecutar y consultar casos.
+
+4. Cada caso debe poder incluir, según corresponda:
+   - Identificador único.
+   - Nombre.
+   - Descripción breve.
+   - Módulo o funcionalidad evaluada.
+   - Precondiciones.
+   - Datos de prueba.
+   - Pasos de ejecución.
+   - Resultado esperado.
+   - Resultado obtenido.
+   - Estado: pendiente, aprobado, rechazado o bloqueado.
+   - Evidencia o detalle del error.
+   - Fecha de ejecución.
+   - Usuario responsable.
+
+5. Los estados de aprobado o rechazado deben derivarse de una ejecución o verificación real. No marcar casos como aprobados únicamente porque fueron creados.
+
+6. Los casos deben permitir verificar, entre otros aspectos:
+   - Inicio de sesión y autenticación.
+   - Restricciones por roles y permisos.
+   - Ocultamiento y reordenamiento de módulos.
+   - Sincronización con Google Sheets.
+   - Actualización de datos dependientes.
+   - Adaptación responsive.
+   - Validaciones de formularios.
+   - Persistencia de configuraciones.
+   - Operaciones críticas de los módulos existentes.
+
+7. Cuando una prueba falle, mostrar el resultado obtenido, la causa identificada cuando sea posible y el comportamiento esperado.
+
+8. Si una prueba no puede ejecutarse por falta de credenciales, servicios o datos, marcarla como bloqueada o pendiente, no como aprobada.
+
+9. Si los casos de aceptación se ejecutan mediante un módulo de pruebas automatizadas, integrarlos con la infraestructura de pruebas existente y generar resultados verificables.
+
+**Criterio de aceptación:** debe ser posible demostrar qué funcionalidad se probó, qué resultado se obtuvo y si realmente cumplió con las condiciones establecidas.
+
+---
+
+## 7. ADMINISTRACIÓN DE USUARIOS, ROLES Y PERMISOS
+
+Este punto es prioritario porque afecta la seguridad del sistema.
+
+Dentro de la pestaña **Administración**, en la sección de configuración de usuarios, necesito que la modificación de roles y permisos tenga efecto real sobre el acceso al ERP.
+
+### 7.1. Configuración de permisos
+
+Permitir que los usuarios autorizados para administrar el sistema puedan configurar los permisos de cada usuario o rol.
+
+Según la estructura actual, los permisos pueden incluir:
+- Visualizar un módulo.
+- Consultar información.
+- Crear registros.
+- Editar registros.
+- Eliminar registros.
+- Ejecutar operaciones específicas.
+- Administrar usuarios.
+- Modificar configuraciones.
+- Ejecutar sincronizaciones con sistemas externos.
+
+Conservar los roles existentes, salvo que sea necesario ajustar su implementación para cumplir estos requisitos.
+
+### 7.2. Aplicación inmediata de los cambios
+
+Ejemplo obligatorio:
+
+Si un administrador autorizado modifica la configuración de permisos y establece que otro usuario con rol de administrador no puede visualizar determinada pestaña, una vez guardada la configuración el sistema debe impedir que ese usuario acceda a ella.
+
+La restricción debe aplicarse efectivamente, no solamente ocultar el nombre de la pestaña.
+
+El cambio debe reflejarse en:
+- Menú lateral.
+- Navegación principal.
+- Rutas y páginas.
+- Accesos directos.
+- Botones y acciones relacionadas.
+- Consultas a los datos protegidos.
+- Operaciones ejecutadas desde el frontend o el backend.
+
+Cuando el usuario tenga una sesión activa, los cambios de permisos deben aplicarse inmediatamente o en la siguiente verificación de autorización, sin requerir que un administrador modifique manualmente el código.
+
+Si el usuario intenta acceder a una ruta protegida mediante una URL directa, el sistema debe denegar el acceso.
+
+### 7.3. Seguridad en frontend y backend
+
+Implementar autorización real en el servidor para las operaciones y los datos protegidos.
+
+No considerar suficiente ocultar botones, pestañas o enlaces en el frontend.
+
+Cada operación protegida debe verificar que el usuario autenticado tenga los permisos necesarios.
+
+Si la arquitectura utiliza una base de datos con políticas de seguridad por fila, reglas de acceso o mecanismos equivalentes, configurarlos de manera coherente con los roles y permisos del ERP.
+
+Evitar que un usuario pueda concederse permisos a sí mismo, modificar su rol mediante una solicitud manipulada o acceder a datos de otros usuarios sin autorización.
+
+Un administrador tampoco debe poder modificar privilegios superiores a los que tiene autorizados, salvo que exista una política explícita que lo permita.
+
+### 7.4. Persistencia y auditoría
+
+Guardar las modificaciones de permisos de forma persistente en la base de datos.
+
+Registrar, cuando corresponda:
+- Usuario que realizó el cambio.
+- Usuario o rol afectado.
+- Permisos anteriores.
+- Permisos nuevos.
+- Fecha y hora.
+- Resultado de la operación.
+
+La configuración debe mantenerse después de cerrar sesión, actualizar la página o reiniciar la aplicación.
+
+### 7.5. Casos de prueba obligatorios
+
+Verificar los siguientes escenarios:
+
+**Caso A:** un usuario sin permiso no puede visualizar un módulo desde el menú.
+
+**Caso B:** el mismo usuario tampoco puede acceder al módulo escribiendo directamente su URL.
+
+**Caso C:** el usuario no puede obtener los datos protegidos mediante una llamada directa a la API.
+
+**Caso D:** cuando se revoca un permiso, el acceso queda bloqueado conforme a la política de actualización de autorizaciones.
+
+**Caso E:** cuando se concede un permiso, el usuario puede acceder a la funcionalidad autorizada.
+
+**Caso F:** un usuario sin permiso de administración no puede cambiar roles o permisos.
+
+**Caso G:** los cambios se conservan después de cerrar sesión y volver a ingresar.
+
+No declarar completada esta funcionalidad hasta verificar estos comportamientos.
+
+---
+
+## 8. CONSERVACIÓN DE LAS FUNCIONALIDADES GANADERAS
+
+Agrogestiona ERP está orientado a la gestión de las especies ovina, bovina y porcina.
+
+Durante el rediseño, conservar la estructura y las funcionalidades existentes relacionadas con:
+- Existencias ganaderas.
+- Categorías de animales.
+- Identificación y trazabilidad.
+- Movimientos de hacienda.
+- Producción.
+- Sanidad.
+- Alimentación y consumos.
+- Reproducción.
+- Costos e ingresos.
+- Gestión económica.
+- Indicadores de rendimiento.
+- Reportes.
+- Configuraciones.
+- Administración de usuarios.
+- Integraciones externas.
+
+Esta lista es orientativa y no autoriza a eliminar otras funcionalidades ya implementadas.
+
+No inventar módulos nuevos que reemplacen los existentes ni cambiar cálculos productivos, contables o económicos sin una justificación técnica y funcional.
+
+Si existen reglas de negocio asociadas a las distintas especies, conservarlas y respetar sus diferencias.
+
+Los indicadores deben seguir calculándose a partir de los datos correspondientes. Cuando se actualicen datos de origen, recalcular los resultados dependientes según la lógica del sistema.
+
+---
+
+## 9. ARQUITECTURA, CALIDAD Y MANTENIBILIDAD
+
+Implementar los cambios respetando la arquitectura tecnológica del proyecto.
+
+No cambiar de framework, base de datos o proveedor de autenticación sin una necesidad justificada.
+
+Reutilizar los componentes y servicios existentes cuando sea razonable.
+
+Evitar:
+- Duplicación de componentes.
+- Código innecesariamente complejo.
+- Datos ficticios en funcionalidades que deban ser reales.
+- Credenciales expuestas.
+- Permisos implementados solamente en el cliente.
+- Funciones que aparenten ejecutarse sin guardar resultados.
+- Errores silenciosos.
+- Cambios que rompan otras funcionalidades.
+
+Agregar validaciones, manejo de errores y pruebas donde sean necesarios.
+
+Si falta una integración, una credencial o una configuración externa indispensable, indicar exactamente qué se necesita y dónde configurarlo. No inventar credenciales ni afirmar que una integración está operativa sin haberla verificado.
+
+---
+
+## 10. PLAN DE IMPLEMENTACIÓN
+
+Trabajá siguiendo este orden:
+
+**Etapa 1. Diagnóstico**
+- Inspeccionar el proyecto existente.
+- Identificar las tecnologías, módulos, componentes, servicios y dependencias.
+- Revisar autenticación, autorización, Google Sheets y casos de aceptación.
+- Identificar los cambios necesarios y sus posibles impactos.
+
+**Etapa 2. Diseño y navegación**
+- Rediseñar la pantalla de inicio de sesión.
+- Eliminar los textos promocionales de esa pantalla.
+- Eliminar la numeración de los módulos.
+- Cambiar “Indicadores y CMI” por “Centro de Inteligencia Ganadera”.
+- Eliminar “Utilidades” de la navegación.
+- Incorporar la personalización del menú.
+
+**Etapa 3. Experiencia de usuario**
+- Aumentar moderadamente el tamaño de la tipografía.
+- Reducir textos repetitivos.
+- Mejorar formularios, indicadores, tarjetas y mensajes.
+- Adaptar todas las pantallas a computadoras, tablets y celulares.
+
+**Etapa 4. Funcionalidades reales**
+- Implementar la persistencia de las preferencias del menú.
+- Completar y verificar la sincronización con Google Sheets.
+- Revisar y poner en funcionamiento los casos de aceptación.
+- Implementar la aplicación efectiva de roles y permisos en frontend y backend.
+
+**Etapa 5. Pruebas**
+- Verificar el funcionamiento de los módulos existentes.
+- Probar los cambios visuales en diferentes tamaños de pantalla.
+- Probar la sincronización con Sheets.
+- Probar los permisos y los intentos de acceso no autorizado.
+- Verificar la persistencia de las configuraciones.
+- Corregir los errores encontrados.
+
+**Etapa 6. Entrega**
+- Presentar los cambios implementados.
+- Indicar los archivos y componentes modificados.
+- Explicar las configuraciones externas necesarias.
+- Identificar las funcionalidades que quedaron operativas.
+- Detallar las pruebas realizadas y sus resultados.
+- Informar expresamente cualquier requisito que no haya podido completarse.
+
+---
+
+## 11. CRITERIOS FINALES DE ACEPTACIÓN
+
+Consideraré que el trabajo está correctamente implementado cuando se cumplan las siguientes condiciones:
+
+1. La pantalla inicial contiene únicamente el acceso al sistema y la imagen de fondo ganadera, junto con los elementos indispensables para autenticarse.
+
+2. Los módulos no aparecen numerados.
+
+3. El módulo “Indicadores y CMI” pasa a llamarse “Centro de Inteligencia Ganadera” sin perder sus funcionalidades.
+
+4. La pestaña “Utilidades” desaparece de la navegación sin romper dependencias del sistema.
+
+5. Existe un botón funcional para personalizar qué módulos visualizar y en qué orden.
+
+6. Las preferencias del menú se guardan y se mantienen entre sesiones.
+
+7. El sistema tiene tipografía más legible y un diseño responsive que funciona correctamente en computadoras, tablets y celulares.
+
+8. La interfaz tiene menos texto repetitivo y ofrece una experiencia más interactiva.
+
+9. Google Sheets se sincroniza realmente cuando el usuario ejecuta la actualización, y los cambios se reflejan en todas las vistas y cálculos dependientes.
+
+10. Los casos de aceptación representan pruebas o registros reales y sus estados no se aprueban sin una verificación correspondiente.
+
+11. Los cambios de roles y permisos se guardan y se aplican efectivamente a la navegación, las rutas, los datos y las operaciones protegidas.
+
+12. Un usuario sin autorización no puede eludir las restricciones accediendo directamente a una URL o a una API.
+
+13. Las funciones ganaderas, productivas, económicas y contables existentes continúan funcionando correctamente.
+
+14. No quedan botones importantes sin funcionalidad, integraciones simuladas presentadas como reales ni pruebas declaradas exitosas sin evidencia.
+
+## INSTRUCCIÓN FINAL
+
+Comenzá analizando el proyecto que ya existe y luego implementá las modificaciones solicitadas sobre esa base.
+
+**No te limites a explicarme cómo hacerlo: realizá los cambios en el código del proyecto.** Conservá las funcionalidades actuales, modificá únicamente lo necesario y verificá los resultados.
+
+Priorizá, en este orden, la seguridad y la integridad de los datos, el funcionamiento real de las integraciones, la conservación de las funcionalidades existentes y la mejora de la experiencia visual.
+
+Si alguna función requiere credenciales, permisos externos, configuración de Google Sheets o información que no esté disponible, implementá todo lo que sea posible y detallá claramente el paso pendiente, sin simular que está resuelto.

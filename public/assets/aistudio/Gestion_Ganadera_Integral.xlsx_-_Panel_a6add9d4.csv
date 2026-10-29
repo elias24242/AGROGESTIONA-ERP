@@ -1,0 +1,54 @@
+,,,,,,,,,,,,,,,,,
+Gestion ganadera integral,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+Especie,TODAS,,Desde,04/07/2024,,Hasta,05/10/2026,,,,,,,,,,
+Conjunto de datos,BASE_INTEGRADA,,,,,,,,,,,,,,,,
+Vista mixta: datos originales y simulacion. Editar filtros en Parametros.,,,,,,,,,,,,,,,,,
+Cobertura distinta por especie. Comparar sobre una ventana comun; no anualizar faltantes.,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+Indicador,Resultado,,,,,,,,,,,,Mes,Ventas,Margen operativo,Cobros,Pagos
+Ventas netas,$59.986.834,,,,,,,,,,,,2024-07,0,"-320793,2",0,"59750,09"
+Costos variables,$41.505.061,,,,,,,,,,,,2024-08,0,"-401710,4",0,"309672,71"
+Margen de contribucion,$18.481.773,,,,,,,,,,,,2024-09,0,"-481244,4",0,377038
+Costos fijos,$12.141.700,,,,,,,,,,,,2024-10,0,"-670534,8",0,"525034,66"
+Margen operativo,$6.340.073,,,,,,,,,,,,2024-11,675675,"-43518,48","597296,7","925061,81"
+Produccion valorizada,$47.198.500,,,,,,,,,,,,2024-12,532350,"-278430,76","470597,4","954187,82"
+Costo hacienda vendida,$42.151.500,,,,,,,,,,,,2025-01,1059030,"6872,01","433840,68","1110276,4"
+Perdida por mortandad,$834.000,,,,,,,,,,,,2025-02,955710,"-12186,43","1347189,48","1425580,4"
+Resultado registrado,$10.553.073,,,,,,,,,,,,2025-03,1730610,"254539,23","1529859,24","1215459,82"
+Cobros del periodo,$52.886.921,,,,,,,,,,,,2025-04,2298870,"821660,25","1529859,24","1231061,98"
+Pagos del periodo,$44.071.287,,,,,,,,,,,,2025-05,2298870,"653087,77","2055034,8","1765269,15"
+Flujo operativo,$8.815.634,,,,,,,,,,,,2025-06,1446480,-113406,"1758196,44","1087810,99"
+Stock al cierre (cabezas),170,,,,,,,,,,,,2025-07,1859760,"27771,76","1461358,08","1472182,28"
+Venta (cabezas),671,,,,,,,,,,,,2025-08,1808100,"-534732,66","981849,96","1242956,98"
+Margen operativo / ventas,"10,6%",,,,,,,,,,,,2025-09,2221380,"20538,54","2077868,52","1288238,23"
+,,,,,,,,,,,,,2025-10,2066400,"-214807,2","1552692,96","1919313,59"
+,,,,,,,,,,,,,2025-11,1317330,"-279044,77","1370023,2","1299381,08"
+Especie,Ventas netas,Margen operativo,Stock cabezas,,,,,,,,,,2025-12,1188180,"-289116,42","1552692,96","2074273,83"
+OVI,$160.000,($1.477.300),18,,,,,,,,,,2026-01,1638000,"-1311593,52","1699162,92",2849501
+POR,$33.523.245,($3.915.524),125,,,,,,,,,,2026-02,1386000,"-2142669,68",779688,"2067309,57"
+BOV,$26.303.589,$11.732.896,27,,,,,,,,,,2026-03,2173500,"-1400828,94",1197378,"2821759,99"
+,,,,,,,,,,,,,2026-04,2142000,"-1097665,44",2868138,"2703100,41"
+,,,,,,,,,,,,,2026-05,1102500,"-1926050,5",1169532,"2553922,09"
+,,,,,,,,,,,,,2026-06,1703500,"-2051155,5",1364454,"2770181,96"
+,,,,,,,,,,,,,2026-07,1197000,-2488409,779688,"2767890,38"
+,,,,,,,,,,,,,2026-08,882000,-3173278,1058148,"3045318,78"
+,,,,,,,,,,,,,2026-09,0,-1475760,0,"1229388,72"
+,,,,,,,,,,,,,2026-10,26303589,"25262539,27","23252372,68","980364,12"
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+Lectura del resultado,,,,,,,,,,,,,,,,,
+El margen operativo compara ventas y costos del periodo. La produccion valuada no representa caja.,,,,,,,,,,,,,,,,,
+Stock: lote operativo ovino + porcinos modelados + bovinos originales y simulados.,,,,,,,,,,,,,,,,,
+El recuento ovino de 81 animales sin fecha exacta permanece separado.,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+Control valida la estructura. Incidencias conserva los datos que requieren revision de campo.,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+IVA y precios son parametros del caso; los importes originales conservan su procedencia.,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+"Tablas para la app: Operaciones, Tesoreria, Movimientos, Reproduccion, Alimentacion y Sanidad.",,,,,,,,,,,,,,,,,
+Catalogos y relaciones documentados en Diccionario y Guia.,,,,,,,,,,,,,,,,,

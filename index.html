@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AGROGESTIONA ERP - Sistema Integral de Gestión Ganadera</title>
+    <meta name="description" content="Sistema Integral de Gestión Ganadera AGROGESTIONA ERP (Ovinos, Bovinos, Porcinos y Consolidado)." />
+    <meta property="og:title" content="AGROGESTIONA ERP - Sistema Integral de Gestión Ganadera" />
+    <meta property="og:description" content="Sistema Integral de Gestión Ganadera AGROGESTIONA ERP (Ovinos, Bovinos, Porcinos y Consolidado)." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script>
+      // 1. Suprimir WebSocket de Vite HMR en entorno AI Studio (HMR deshabilitado por arquitectura de contenedor)
+      (function() {
+        // Interceptar creación de WebSocket para Vite HMR y neutralizarlo silenciosamente
+        var OriginalWebSocket = window.WebSocket;
+        if (OriginalWebSocket) {
+          window.WebSocket = function(url, protocols) {
+            var isViteHmr = false;
+            if (protocols === 'vite-hmr' || (Array.isArray(protocols) && protocols.includes('vite-hmr'))) {
+              isViteHmr = true;
+            }
+            if (typeof url === 'string' && (url.indexOf('vite') !== -1 || url.indexOf('3000') !== -1 || url.indexOf('/@vite') !== -1)) {
+              isViteHmr = true;
+            }
+
+            if (isViteHmr) {
+              // Objeto WebSocket mock que simula estar abierto permanentemente sin realizar peticiones de red
+              var noop = function() {};
+              var mockWs = {
+                url: String(url || ''),
+                readyState: 1, // WebSocket.OPEN
+                bufferedAmount: 0,
+                extensions: '',
+                protocol: 'vite-hmr',
+                binaryType: 'blob',
+                send: noop,
+                close: noop,
+                addEventListener: noop,
+                removeEventListener: noop,
+                dispatchEvent: function() { return false; },
+                onopen: null,
+                onclose: null,
+                onerror: null,
+                onmessage: null,
+              };
+              return mockWs;
+            }
+
+            return new OriginalWebSocket(url, protocols);
+          };
+          window.WebSocket.prototype = OriginalWebSocket.prototype;
+          window.WebSocket.CONNECTING = 0;
+          window.WebSocket.OPEN = 1;
+          window.WebSocket.CLOSING = 2;
+          window.WebSocket.CLOSED = 3;
+        }
+
+        // 2. Interceptar y suprimir mensajes de error/warning de console relacionados con [vite] y websocket
+        var origConsoleError = console.error;
+        console.error = function() {
+          var args = Array.prototype.slice.call(arguments);
+          var text = '';
+          for (var i = 0; i < args.length; i++) {
+            try {
+              text += ' ' + (typeof args[i] === 'object' ? JSON.stringify(args[i]) : String(args[i]));
+            } catch (e) {
+              text += ' ' + String(args[i]);
+            }
+          }
+          var lower = text.toLowerCase();
+          if (
+            lower.indexOf('[vite]') !== -1 ||
+            lower.indexOf('websocket') !== -1 ||
+            lower.indexOf('web socket') !== -1 ||
+            lower.indexOf('vite-hmr') !== -1 ||
+            lower.indexOf('cerrado sin haber abierto') !== -1 ||
+            lower.indexOf('failed to connect to websocket') !== -1 ||
+            lower.indexOf('no se pudo conectar con el websocket') !== -1
+          ) {
+            return;
+          }
+          return origConsoleError.apply(console, arguments);
+        };
+
+        var origConsoleWarn = console.warn;
+        console.warn = function() {
+          var args = Array.prototype.slice.call(arguments);
+          var text = '';
+          for (var i = 0; i < args.length; i++) {
+            try {
+              text += ' ' + (typeof args[i] === 'object' ? JSON.stringify(args[i]) : String(args[i]));
+            } catch (e) {
+              text += ' ' + String(args[i]);
+            }
+          }
+          var lower = text.toLowerCase();
+          if (
+            lower.indexOf('[vite]') !== -1 ||
+            lower.indexOf('websocket') !== -1 ||
+            lower.indexOf('vite-hmr') !== -1
+          ) {
+            return;
+          }
+          return origConsoleWarn.apply(console, arguments);
+        };
+
+        // 3. Suprimir eventos globales de rechazos no gestionados y errores de Vite client
+        window.addEventListener('unhandledrejection', function(event) {
+          if (event && event.reason) {
+            var msg = (event.reason.message || event.reason.toString() || '').toLowerCase();
+            if (msg.indexOf('websocket') !== -1 || msg.indexOf('ws') !== -1 || msg.indexOf('vite') !== -1) {
+              event.preventDefault();
+              event.stopImmediatePropagation && event.stopImmediatePropagation();
+              return;
+            }
+          }
+        });
+
+        window.addEventListener('error', function(event) {
+          if (event) {
+            var msg = (event.message || '').toLowerCase();
+            var file = (event.filename || '').toLowerCase();
+            if (msg.indexOf('websocket') !== -1 || msg.indexOf('vite') !== -1 || file.indexOf('@vite/client') !== -1) {
+              event.preventDefault();
+              event.stopImmediatePropagation && event.stopImmediatePropagation();
+              return;
+            }
+          }
+        });
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,431 @@
+*INVENTARIO DE DATOS — UNIDAD PORCINA 🐖*
+*Establecimiento Pozo del Carril – La Aguada | Grupo 2 | Taller de Práctica*
+
+*1. FASES PRODUCTIVAS Y CATEGORÍAS ANIMALES*
+
+• *Fase productiva: Cría*
+  - Categoría SENASA: Lechón
+  - Rango de peso: 0–15 kg
+  - Período: día 0 al 31 desde el nacimiento
+  - Duración: 31 días
+  - Cuenta contable: 1.3.03.01 — Lechones
+
+• *Fase productiva: Destete*
+  - Categoría SENASA: Cachorro/Cachorra
+  - Rango de peso: 15–50 kg
+  - Período: día 31 al 86 desde el nacimiento
+  - Duración: 55 días
+  - Cuenta contable: 1.3.03.02 — Cachorro
+
+• *Fase productiva: Engorde*
+  - Categoría SENASA: Capón
+  - Rango de peso: 50–105 kg
+  - Período: día 86 al 165 desde el nacimiento
+  - Duración: 79 días
+  - Cuenta contable: 1.3.03.03 — Capones terminados
+
+Dato cualitativo: el ciclo productivo se organiza en tres fases consecutivas: Cría → Destete → Engorde. El costo acumulado de cada animal se transfiere de una fase a la siguiente.
+
+*2. COMPOSICIÓN PORCENTUAL DE LA ALIMENTACIÓN*
+
+• *Cría (Lechón):*
+  - Maíz propio: 0%
+  - Concentrado comprado preiniciador: 100%
+  - Soja peleteada: 0%
+
+• *Destete (Cachorro/Cachorra):*
+  - Maíz propio: 80%
+  - Concentrado comprado de desarrollo: 10%
+  - Soja peleteada: 10%
+
+• *Engorde (Capón):*
+  - Maíz propio: 70%
+  - Concentrado comprado: 0%
+  - Soja peleteada: 30%
+
+Dato cualitativo: la composición de la ración cambia según la fase productiva y las necesidades nutricionales del animal.
+
+*3. COSTOS E IMPORTES INFORMADOS*
+
+• Alimentación: representa aproximadamente el 78% del costo total.
+• Mano de obra directa: $3.000.000 totales.
+• Distribución estimada de mano de obra:
+  - Cría: 60%.
+  - Destete: 30%.
+  - Engorde: 10%.
+• Energía: $800.000, asignados íntegramente a Cría.
+• Inseminación: $1.487.500, incluida en el prorrateo del plantel reproductor.
+• Vida útil productiva estimada del plantel reproductor: 3,5 años.
+• Transferencia de costos de Cría a Destete: $26.377.259,25.
+
+Importante: el archivo no informa los costos completos por animal ni todos los importes desagregados por rubro. No completar esos valores con estimaciones propias.
+
+*4. REPRODUCTORES Y ANIMALES DE DESCARTE*
+
+• Plantel de madres:
+  - Cuenta: 1.4.01.
+  - Clasificación: activo biológico de producción.
+  - Son hembras reproductoras en actividad.
+
+• Padrillos:
+  - Cuenta: 1.4.02.
+  - Clasificación: activo biológico de producción.
+  - Son machos reproductores en actividad.
+
+• Amortización acumulada de reproductores:
+  - Cuenta: 1.4.03.
+  - Clasificación: cuenta regularizadora de los activos biológicos.
+
+• Cerdas de descarte:
+  - Cuenta: 1.4.04.
+  - Hembras retiradas del plantel productivo.
+
+• Padrillos de descarte:
+  - Cuenta: 1.4.05.
+  - Machos retirados del plantel productivo.
+
+Dato cualitativo importante: madres y padrillos en actividad se diferencian de los animales destinados a la venta. Cuando un reproductor se da de baja del plantel, pasa a la categoría de descarte.
+
+*5. CRITERIOS DE VALUACIÓN*
+
+• Lechones: costo de producción acumulado.
+• Cachorros/Cachorras: costo de producción acumulado, incluyendo el costo transferido desde Cría.
+• Capones terminados: valor neto de realización (VNR), según la referencia ROSPORC indicada en el documento.
+• Madres y padrillos en actividad: costo acumulado neto de amortización.
+• Cerdas y padrillos de descarte: costo de producción acumulado, según el documento.
+
+Dato cualitativo: el archivo distingue las existencias destinadas a la venta de los activos biológicos utilizados para producir.
+
+*6. OTRAS PARTIDAS DE COSTO*
+
+• Sanidad: vacunas y tratamientos.
+• Mano de obra directa: cuenta 4.3.06.
+• Amortización/prorrateo del plantel reproductor: cuenta 4.3.07.
+• Energía: cuenta 4.3.08.
+• Comercialización porcina: cuenta 4.3.09; incluye flete y tipificación en la venta final del capón. El documento indica que no hay comisión de mercado por tratarse de venta directa a frigorífico.
+• Mortandad: cuenta 4.3.10; se registra según la fase en que ocurre.
+• Mantenimiento de instalaciones porcinas: cuenta 4.3.11; incluye comederos y parideras.
+• Costo de mercadería vendida — Porcinos: cuenta 4.3.12.
+
+*7. DATOS CUANTITATIVOS QUE NO APARECEN EN ESTE DOCUMENTO*
+
+El archivo no especifica las cantidades actuales de:
+• Lechones.
+• Cachorros/Cachorras.
+• Capones terminados.
+• Madres reproductoras.
+• Padrillos reproductores.
+• Cerdas de descarte.
+• Padrillos de descarte.
+
+Tampoco informa el stock actual en kilogramos, los costos unitarios completos ni la valuación monetaria actual de cada categoría.
+
+*Conclusión:* el Word aporta la estructura productiva porcina, las categorías, los rangos de peso y duración, la composición porcentual de las raciones, algunos importes de costos y los criterios contables. Para completar las existencias actuales hacen falta datos de otra fuente.
+
+*INVENTARIO DE DATOS — UNIDAD BOVINA 🐄*
+*Establecimiento Pozo del Carril – La Aguada*
+
+*1. FASES PRODUCTIVAS Y DURACIÓN DEL CICLO*
+
+• *Fase: Cría*
+  - Descripción: lactancia al pie de la madre, sobre pasturas y rastrojos, hasta alcanzar el peso de destete.
+  - Duración: 180 días (6 meses).
+  - Consumo diario de alimento indicado: 10 kg.
+  - Peso de referencia: hasta 160 kg.
+  - Evento asociado: parición.
+
+• *Fase: Recría*
+  - Descripción: crecimiento en pasturas de alfalfa, con aporte de fibra para desarrollar la estructura ósea sin engrase.
+  - Duración: 120 días (4 meses).
+  - Consumo diario de alimento indicado: 6 kg.
+  - Peso de referencia: 160–280 kg.
+  - Evento asociado: destete.
+
+• *Fase: Adaptación*
+  - Descripción: acostumbramiento ruminal progresivo, incorporando maíz y rollos para prevenir timpanismo.
+  - Duración: 30 días (1 mes).
+  - Consumo diario de alimento indicado: 7 kg.
+  - Peso de referencia: 280–320 kg.
+  - Criterio de cambio de etapa: por kilogramo o por tiempo.
+
+• *Fase: Engorde*
+  - Descripción: alimentación intensiva en corral con ración de maíz, soja y concentrado hasta la terminación comercial.
+  - Duración: 60 días (2 meses).
+  - Consumo diario de alimento indicado: 10 kg.
+  - Peso de referencia: 320–450 kg.
+  - Criterio de cambio de etapa: por kilogramo o por tiempo.
+
+• *Duración total informada:* 390 días (13 meses).
+• *Cantidad de cabezas de la tabla general:* 0; el archivo no presenta una cantidad cargada para esas cuatro etapas en esa tabla.
+
+Dato cualitativo: el pasaje entre etapas depende de criterios físicos y productivos, como peso, edad, alimentación y decisión técnica del establecimiento.
+
+*2. CATEGORÍAS DE ANIMALES Y PRECIOS DE REFERENCIA*
+
+Precios que aparecen en la parte general, con referencia al 8/9:
+
+• Vaquillona: $4.662,75.
+• Vaca: $3.354,18.
+• Toro: $3.429,47.
+• Novillo: $4.496,34.
+• Ternero: sin precio consignado en esa tabla.
+
+Fuente indicada: Mercado Agroganadero.
+
+La planilla también utiliza estas categorías para el registro productivo:
+• Vacas.
+• Vacas secas.
+• Vacas preñadas.
+• Vaquillona 1.
+• Vaquillona 2.
+• Terneros.
+• Terneras.
+• Destete.
+• Novillitos.
+• Novillos.
+• Toros.
+• Toritos.
+
+*3. PARTICIPACIÓN DE LOS INSUMOS Y EROGACIONES EN EL COSTO TOTAL*
+
+Porcentajes indicados en la parte general:
+
+• Alimentación — granos: 70%.
+• Reservas forrajeras — silaje de maíz: 8%.
+• Reservas forrajeras — rollos de alfalfa: 7%.
+• Flete ganadero compartido: 5%.
+• Comisiones de feria: 5%.
+• Sanidad — honorarios veterinarios: 0%.
+• Sanidad — vacunación: 2%.
+• Mano de obra: 3%.
+
+Observaciones del archivo:
+• El flete se comparte con otro productor local debido a la baja escala del lote.
+• Los honorarios veterinarios corresponden a veterinarios de la UNRC.
+• La vacunación se estima en alrededor de $2.000 por vacuna por cabeza.
+• La mano de obra se relaciona principalmente con el mantenimiento del campo: postes, varillas y alambres.
+
+Importante: estos porcentajes se transcriben tal como figuran en la planilla. No se los debe modificar ni interpretar como valores calculados a partir de comprobantes individuales.
+
+*4. EXISTENCIAS BOVINAS — CUENTAS CONTABLES*
+
+En el plan de cuentas aparecen las siguientes cuentas de bienes de cambio:
+
+• 1.3.01.01 — Terneros al pie de la madre.
+• 1.3.01.02 — Terneras al pie de la madre.
+• 1.3.01.03 — Novillitos recría a pasto.
+• 1.3.01.04 — Novillos en adaptación ruminal.
+• 1.3.01.05 — Novillos terminación corral (450 kg).
+• 1.3.01.06 — Vaquillonas descarte comercial.
+• 1.3.01.07 — Vacas descarte (rechazo tacto).
+• 1.3.01.08 — Toros de descarte.
+
+También aparecen estas cuentas para insumos y reservas:
+
+• 1.3.02.01 — Maíz grano propio almacenado.
+• 1.3.02.02 — Núcleo mineral y premezclas.
+• 1.3.02.03 — Grano de soja suplemento.
+• 1.3.02.04 — Silaje de maíz en bolsón.
+• 1.3.02.05 — Rollos de pastura / forrajes.
+• 1.3.02.06 — Productos veterinarios y vacunas.
+
+Otras cuentas:
+• 1.3.03 — Hacienda de terceros.
+• 1.4.01.01 — Vacas madres Angus PC en producción.
+• 1.4.01.02 — Vaquillonas reposición para cabaña.
+• 1.4.01.03 — Toros padres de cabaña.
+
+Dato contable importante: la planilla distingue las existencias destinadas a comercialización de los activos biológicos utilizados como reproductores. La hacienda de terceros debe registrarse por separado y no sumarse al patrimonio propio del establecimiento.
+
+*5. COSTOS DE GANADERÍA BOVINA Y COMERCIALIZACIÓN*
+
+El plan de cuentas identifica los siguientes conceptos de costos:
+
+*Alimentación*
+• Alimentación — maíz propio consumido.
+• Alimentación — granos de soja.
+• Alimentación — núcleo mineral con monensina.
+• Alimentación — silaje de maíz.
+• Alimentación — rollos.
+• Alimentación — alfalfa.
+• Alimentación — otras pasturas.
+
+*Sanidad*
+• Vacunación antiaftosa.
+• Vacunación antibrucélica.
+• Antiparasitarios y carminativos.
+• Vacuna reproductiva.
+• Vacuna diarrea neonatal.
+• Vacuna carbunclo.
+• Vacuna respiratoria.
+• Vacuna clostridial.
+• Vacuna brucelosis.
+
+*Otros costos productivos e indirectos*
+• Semen e inseminación.
+• Mortandad.
+• Amortización de reproductores.
+• Mantenimiento de tolvas, aguadas y mangas.
+• Mano de obra.
+• Energía y estructura.
+
+*Gastos de comercialización*
+• Comisión de la casa consignataria de feria.
+• Flete de hacienda a feria mediante camión jaula.
+• Derechos de pista y pesaje de feria.
+• Aranceles SENASA, DTe y guías.
+
+El archivo identifica estos conceptos contables, pero no todos tienen un importe efectivamente cargado en los registros. No asignarles valores monetarios si no están informados.
+
+*6. MOVIMIENTOS DE HACIENDA Y CONTROL DEL STOCK*
+
+La planilla contempla movimientos de:
+• Nacimiento.
+• Compra.
+• Venta.
+• Traslado.
+• Cambio de etapa.
+• Cambio de categoría.
+• Muerte.
+• Descarte.
+
+Datos utilizados en la reconstrucción de existencias:
+• Período: del 22/06/2026 al 30/09/2026.
+• Stock inicial propio informado: 129 cabezas.
+• Compras: 40 cabezas.
+• Nacimientos: 0.
+• Ingresos: 6 cabezas.
+• Egresos: 0.
+• Ventas: 1 cabeza.
+• Muertes: 0.
+• Stock final propio informado: 174 cabezas.
+
+Detalle por categoría en esa reconstrucción:
+
+• Vacas: stock inicial 57; compras 10; stock final 67.
+• Vacas secas: stock inicial 0; stock final 0.
+• Vacas preñadas: stock inicial 0; stock final 0.
+• Vaquillona 1: stock inicial 11; compras 30; stock final 41.
+• Vaquillona 2: stock final 0.
+• Terneros: stock inicial 41; stock final 41.
+• Terneras: stock inicial 16; stock final 16.
+• Destete: stock final 0.
+• Novillitos: stock final 0.
+• Novillos: stock inicial 0; stock final 0.
+• Toros: stock inicial 4; ingresos 6; ventas 1; stock final 9.
+• Toritos: stock inicial 0; stock final 0.
+
+*Advertencia:* estos valores corresponden a la reconstrucción de una planilla y a un período específico. El propio archivo señala que la planilla original presentaba inconsistencias entre stock inicial y final. Por lo tanto, no asumir que estos números son las existencias actuales definitivas sin confirmar el período y los movimientos.
+
+La planilla indica que el stock final de una campaña debe trasladarse al stock inicial de la campaña siguiente.
+
+*7. DATOS DE MERCADO GANADERO*
+
+En la hoja de precios de referencia aparecen los siguientes valores al 08/09:
+
+• Vacas: $3.354,18.
+• Vaquillonas: $4.662,75.
+• Terneros: sin precio consignado.
+• Terneras: sin precio consignado.
+• Novillitos: $4.088,37.
+• Novillos: $4.496,34.
+• Toros: $3.429,47.
+
+Fuente indicada para esos precios: Mercado Agroganadero.
+
+La misma hoja contiene una tabla adicional de referencias de mercado con precios mínimos, máximos, promedios, variaciones frente a la rueda anterior y cantidad de cabezas negociadas. Entre los promedios consignados aparecen:
+
+• Novillos especiales jóvenes, más de 430 kg: $4.262/kg.
+• Novillos regulares, hasta 430 kg: $3.841/kg.
+• Novillos regulares, más de 430 kg: $3.918/kg.
+• Novillitos especiales, hasta 390 kg: $4.516/kg.
+• Novillitos especiales, más de 390 kg: $4.401/kg.
+• Novillitos regulares: $4.132/kg.
+• Vaquillonas especiales, hasta 390 kg: $4.521/kg.
+• Vaquillonas especiales, más de 390 kg: $3.912/kg.
+• Vaquillonas regulares: $3.786/kg.
+• Vacas especiales jóvenes, hasta 430 kg: $2.966/kg.
+• Vacas especiales jóvenes, más de 430 kg: $3.424/kg.
+• Vacas regulares: $2.992/kg.
+• Vacas conserva buena: $2.674/kg.
+• Vacas conserva inferior: $2.739/kg.
+• Toros especiales: $3.698/kg.
+• Toros regulares: $3.192/kg.
+• MEJ especiales, hasta 430 kg: $4.165/kg.
+• MEJ regulares: $3.471/kg.
+
+Fuente de la tabla adicional: consignatarias.com.ar, mercado de Cañuelas.
+
+Importante: los precios de referencia del mercado no equivalen automáticamente al valor contable del stock propio.
+
+*8. EJEMPLO DE VENTA Y VALUACIÓN*
+
+El archivo incluye un ejemplo de venta de 15 novillos terminados de 450 kg cada uno:
+
+• Cantidad: 15 animales.
+• Peso individual: 450 kg.
+• Peso total: 6.750 kg.
+• Precio por kg: $4.496,34.
+• Importe bruto de la operación: $30.350.295.
+
+Costos de venta del ejemplo:
+• Comisión de la casa consignataria: $910.508,85.
+• Flete a feria: $1.200.000.
+• Derechos de pista y pesaje: $151.751,475.
+• Aranceles SENASA, DTe y guías: $35.000.
+• Total de costos de venta: $2.297.260,325.
+
+El ejemplo registra además:
+• IVA débito fiscal (10,5% hacienda): $3.186.780,975.
+• Valor neto de realización (VNR) indicado: $28.053.034,68.
+
+Es un ejemplo contable incluido en la planilla, no necesariamente una venta real ni una valuación actual del stock.
+
+*9. INDICADORES PRODUCTIVOS Y ECONÓMICOS PREVISTOS*
+
+La planilla de resumen contempla:
+
+• Stock total, en cantidad de animales.
+• Kilogramos físicos en stock.
+• Valor estimado del stock.
+• Peso promedio por animal.
+• Ganancia diaria de peso promedio (kg/día).
+• Costo de alimentación.
+• Costo de sanidad.
+• Otros costos productivos.
+• Ingresos netos por ventas.
+• Costo por kilogramo agregado.
+• Margen incremental.
+• Decisión automática de conveniencia de terminar el animal.
+
+En la hoja de decisión de engorde se indican estos parámetros:
+• Peso de venta liviano: 140 kg.
+• Peso objetivo terminado: 450 kg.
+• Diferencia de peso entre ambos objetivos: 310 kg.
+
+Los campos de días de engorde, precios de venta, costos adicionales e ingresos adicionales no tienen todos sus valores completos. La decisión que aparece en esa hoja es “VENDER LIVIANO”, pero no debe tomarse como una conclusión económica vigente sin revisar los datos faltantes.
+
+*10. DATOS QUE FALTAN O REQUIEREN CONFIRMACIÓN*
+
+El archivo identifica como datos relevantes para completar:
+• Cabezas por categoría a la fecha.
+• Terneros nacidos por año y porcentaje de destete.
+• Precio del ternero de 140 kg, con fecha.
+• Precio del novillo terminado, con fecha.
+• Composición de la ración y costo por kilogramo.
+• Kilogramos de ración por kilogramo de peso ganado.
+• Gasto anual de sanidad por cabeza.
+• Mortandad por categoría.
+• Comisiones y gastos de venta en feria.
+• Qué animales se venden como reproductores y a qué valor.
+• Superficie forestada y producción de madera.
+• Criterio de valuación de la hacienda en existencia.
+
+También hay campos vacíos o fórmulas sin resultado en algunas hojas. Por ejemplo, la decisión automática del resumen presenta un error de referencia (#REF!) en la planilla.
+
+*CONCLUSIÓN*
+
+El Excel aporta información productiva, categorías, fases, pesos, duración, referencias de precios, costos, movimientos de stock, indicadores y un plan de cuentas bovino. También incluye datos contables útiles para diferenciar existencias, activos biológicos, ingresos, costos y gastos de comercialización.
+
+Para cargarlo en Agrogestiona, se deben conservar los datos con su período, categoría y origen, distinguiendo los precios de mercado de las valuaciones contables y los ejemplos de los registros reales confirmados.
+

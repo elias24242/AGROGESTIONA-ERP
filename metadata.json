@@ -1,0 +1,8 @@
+{
+  "name": "Remix Remix AGROGESTIONA ERP",
+  "description": "No es solo un software; es el centro de control definitivo para las empresas del sector que deciden liderar el mercado. AgroGestiona ERP es un ecosistema de gestión de gama alta diseñado exclusivamente para unificar la complejidad de las operaciones agrícolas y pecuarias en una sola interfaz inteligente, predictiva y de escala global.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

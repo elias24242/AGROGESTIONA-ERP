@@ -1,0 +1,305 @@
+/**
+ * Tabla Maestra de Benchmarks y Estándares Técnicos (F_EstandarIndicador)
+ * 
+ * Regla metodológica fundamental:
+ * - 1. REAL: Surge de las operaciones del establecimiento (F_Movimiento, F_Venta, F_Costo).
+ * - 2. POZO DEL CARRIL: Benchmark interno (promedio histórico UNRC / metas del establecimiento).
+ * - 3. INTA / TÉCNICO EXTERNO: Benchmark externo con fuente, documento y fecha. Si no existe
+ *      documento formal, se exhibe 'ESTÁNDAR INTA PENDIENTE DE DEFINICIÓN' sin inventar números.
+ */
+
+export type TipoEstandar = 'POZO_CARRIL' | 'INTA' | 'OTRO_TECNICO';
+
+export interface EstandarIndicador {
+  id_estandar: string;
+  id_indicador: string;
+  indicador_nombre: string;
+  id_especie: 'ESP001' | 'ESP002' | 'ESP003' | 'TODOS';
+  especie_nombre: string;
+  tipo_estandar: TipoEstandar;
+  valor: number | null;
+  unidad: string;
+  periodo_desde?: string;
+  periodo_hasta?: string;
+  fuente: string;
+  documento?: string;
+  url?: string;
+  fecha_fuente?: string;
+  fecha_consulta?: string;
+  observaciones?: string;
+  estado_definicion: 'HOMOLOGADO' | 'PENDIENTE_DEFINICION';
+  activo: boolean;
+}
+
+export const ESTANDARES_INDICADORES_MASTER: EstandarIndicador[] = [
+  // --- OVINOS (ESP001) ---
+  {
+    id_estandar: 'EST-OVI-MORT-PDC',
+    id_indicador: 'tasa_mortalidad_general',
+    indicador_nombre: 'Mortalidad General de Majada',
+    id_especie: 'ESP001',
+    especie_nombre: 'Ovinos',
+    tipo_estandar: 'POZO_CARRIL',
+    valor: 3.5,
+    unidad: '%',
+    fuente: 'Establecimiento Pozo del Carril (UNRC)',
+    documento: 'Registro Histórico de Señalada y Mortandad 2023-2025',
+    fecha_fuente: '2025-12-01',
+    observaciones: 'Promedio histórico majada general Dorper/Corriedale',
+    estado_definicion: 'HOMOLOGADO',
+    activo: true,
+  },
+  {
+    id_estandar: 'EST-OVI-MORT-INTA',
+    id_indicador: 'tasa_mortalidad_general',
+    indicador_nombre: 'Mortalidad General de Majada',
+    id_especie: 'ESP001',
+    especie_nombre: 'Ovinos',
+    tipo_estandar: 'INTA',
+    valor: 4.0,
+    unidad: '%',
+    fuente: 'INTA Manfredi / EEA Bariloche',
+    documento: 'Guía de Prácticas Ovinas en Región Semiárida Pampeana (Doc. N° 42)',
+    url: 'https://inta.gob.ar/documentos/guia-manejo-ovino-semiarido',
+    fecha_fuente: '2024-05-15',
+    observaciones: 'Estándar zootécnico regional para zona centro de Córdoba',
+    estado_definicion: 'HOMOLOGADO',
+    activo: true,
+  },
+  {
+    id_estandar: 'EST-OVI-SUP-PDC',
+    id_indicador: 'supervivencia_corderos',
+    indicador_nombre: 'Supervivencia de Corderos',
+    id_especie: 'ESP001',
+    especie_nombre: 'Ovinos',
+    tipo_estandar: 'POZO_CARRIL',
+    valor: 82.0,
+    unidad: '%',
+    fuente: 'UNRC - Dpto. Producción Animal',
+    documento: 'Protocolo de Parición Asistida Pozo del Carril',
+    fecha_fuente: '2025-10-15',
+    observaciones: 'Meta interna establecida para pariciones de otoño/primavera',
+    estado_definicion: 'HOMOLOGADO',
+    activo: true,
+  },
+  {
+    id_estandar: 'EST-OVI-SUP-INTA',
+    id_indicador: 'supervivencia_corderos',
+    indicador_nombre: 'Supervivencia de Corderos',
+    id_especie: 'ESP001',
+    especie_nombre: 'Ovinos',
+    tipo_estandar: 'INTA',
+    valor: 85.0,
+    unidad: '%',
+    fuente: 'INTA Anguil / Manfredi',
+    documento: 'Eficiencia Reproductiva y Señalada Ovina en Sistemas Mixtos',
+    url: 'https://inta.gob.ar/documentos/eficiencia-reproductiva-ovina-2024',
+    fecha_fuente: '2024-08-20',
+    observaciones: 'Referencia en majadas con suplementación estratégica',
+    estado_definicion: 'HOMOLOGADO',
+    activo: true,
+  },
+  {
+    id_estandar: 'EST-OVI-RND-PDC',
+    id_indicador: 'rendimiento_res',
+    indicador_nombre: 'Rendimiento al Gancho (Res Ovina)',
+    id_especie: 'ESP001',
+    especie_nombre: 'Ovinos',
+    tipo_estandar: 'POZO_CARRIL',
+    valor: 51.5,
+    unidad: '%',
+    fuente: 'Ensayos Frigoríficos UNRC',
+    documento: 'Resultados de Faena Didáctica Frigorífico Regional Río Cuarto',
+    fecha_fuente: '2025-11-10',
+    observaciones: 'Corderos pesados 32-36 kg vivo',
+    estado_definicion: 'HOMOLOGADO',
+    activo: true,
+  },
+  {
+    id_estandar: 'EST-OVI-RND-INTA',
+    id_indicador: 'rendimiento_res',
+    indicador_nombre: 'Rendimiento al Gancho (Res Ovina)',
+    id_especie: 'ESP001',
+    especie_nombre: 'Ovinos',
+    tipo_estandar: 'INTA',
+    valor: 53.0,
+    unidad: '%',
+    fuente: 'INTA Balcarce / Anguil',
+    documento: 'Tipificación de Res y Calidad de Carne Ovina en Argentina',
+    fecha_fuente: '2024-03-12',
+    estado_definicion: 'HOMOLOGADO',
+    activo: true,
+  },
+
+  // --- BOVINOS (ESP002) ---
+  {
+    id_estandar: 'EST-BOV-DEST-PDC',
+    id_indicador: 'porc_destete_bovino',
+    indicador_nombre: 'Porcentaje de Destete Bovino',
+    id_especie: 'ESP002',
+    especie_nombre: 'Bovinos',
+    tipo_estandar: 'POZO_CARRIL',
+    valor: 78.0,
+    unidad: '%',
+    fuente: 'Establecimiento La Aguada (UNRC)',
+    documento: 'Histórico de Tacto y Señalada Vacuna 2023-2025',
+    fecha_fuente: '2025-06-30',
+    observaciones: 'Rodeo de cría en pastizales naturales de La Aguada',
+    estado_definicion: 'HOMOLOGADO',
+    activo: true,
+  },
+  {
+    id_estandar: 'EST-BOV-DEST-INTA',
+    id_indicador: 'porc_destete_bovino',
+    indicador_nombre: 'Porcentaje de Destete Bovino',
+    id_especie: 'ESP002',
+    especie_nombre: 'Bovinos',
+    tipo_estandar: 'INTA',
+    valor: 82.5,
+    unidad: '%',
+    fuente: 'INTA Marcos Juárez / Manfredi',
+    documento: 'Monitoreo de Eficiencia en Rodeos de Cría Bovina Zona Centro',
+    url: 'https://inta.gob.ar/documentos/cria-bovina-eficiencia-destete',
+    fecha_fuente: '2024-09-01',
+    estado_definicion: 'HOMOLOGADO',
+    activo: true,
+  },
+  {
+    id_estandar: 'EST-BOV-ADPV-PDC',
+    id_indicador: 'ganancia_diaria_peso_bov',
+    indicador_nombre: 'Ganancia Diaria de Peso (ADPV)',
+    id_especie: 'ESP002',
+    especie_nombre: 'Bovinos',
+    tipo_estandar: 'POZO_CARRIL',
+    valor: 0.820,
+    unidad: 'kg/día',
+    fuente: 'Planilla de Pesajes La Aguada',
+    documento: 'Ensayo de Recría Bovina con Verdeos de Invierno',
+    fecha_fuente: '2026-06-01',
+    estado_definicion: 'HOMOLOGADO',
+    activo: true,
+  },
+  {
+    id_estandar: 'EST-BOV-ADPV-INTA',
+    id_indicador: 'ganancia_diaria_peso_bov',
+    indicador_nombre: 'Ganancia Diaria de Peso (ADPV)',
+    id_especie: 'ESP002',
+    especie_nombre: 'Bovinos',
+    tipo_estandar: 'INTA',
+    valor: 0.950,
+    unidad: 'kg/día',
+    fuente: 'INTA General Villegas / Manfredi',
+    documento: 'Modelos de Recría e Invernada Bovina Intensiva',
+    fecha_fuente: '2024-11-20',
+    estado_definicion: 'HOMOLOGADO',
+    activo: true,
+  },
+
+  // --- PORCINOS (ESP003) ---
+  {
+    id_estandar: 'EST-POR-LECH-PDC',
+    id_indicador: 'lechones_destetados_parto',
+    indicador_nombre: 'Lechones Destetados por Parto',
+    id_especie: 'ESP003',
+    especie_nombre: 'Porcinos',
+    tipo_estandar: 'POZO_CARRIL',
+    valor: 10.1,
+    unidad: 'lechones/parto',
+    fuente: 'Pabellón Porcino Pozo del Carril',
+    documento: 'Libro de Partos y Destetes 2024/2026 (Hoja1: 2-96)',
+    fecha_fuente: '2026-05-15',
+    observaciones: 'Promedio obtenido de las 96 camadas modeladas en el módulo didáctico',
+    estado_definicion: 'HOMOLOGADO',
+    activo: true,
+  },
+  {
+    id_estandar: 'EST-POR-LECH-INTA',
+    id_indicador: 'lechones_destetados_parto',
+    indicador_nombre: 'Lechones Destetados por Parto',
+    id_especie: 'ESP003',
+    especie_nombre: 'Porcinos',
+    tipo_estandar: 'INTA',
+    valor: 11.5,
+    unidad: 'lechones/parto',
+    fuente: 'INTA Pergamino / Marcos Juárez',
+    documento: 'Guía de Manejo y Productividad en Granjas Porcinas Semiintensivas',
+    url: 'https://inta.gob.ar/documentos/productividad-porcina-camadas',
+    fecha_fuente: '2024-04-10',
+    estado_definicion: 'HOMOLOGADO',
+    activo: true,
+  },
+  {
+    id_estandar: 'EST-POR-CONV-PDC',
+    id_indicador: 'conversion_alimenticia_porc',
+    indicador_nombre: 'Conversión Alimenticia Porcina',
+    id_especie: 'ESP003',
+    especie_nombre: 'Porcinos',
+    tipo_estandar: 'POZO_CARRIL',
+    valor: 2.85,
+    unidad: 'kg alim / kg vivo',
+    fuente: 'Pabellón Porcino Pozo del Carril',
+    documento: 'Control de Alimentos y Pesadas a Faena',
+    fecha_fuente: '2026-06-30',
+    estado_definicion: 'HOMOLOGADO',
+    activo: true,
+  },
+  {
+    id_estandar: 'EST-POR-CONV-INTA',
+    id_indicador: 'conversion_alimenticia_porc',
+    indicador_nombre: 'Conversión Alimenticia Porcina',
+    id_especie: 'ESP003',
+    especie_nombre: 'Porcinos',
+    tipo_estandar: 'INTA',
+    valor: 2.65,
+    unidad: 'kg alim / kg vivo',
+    fuente: 'INTA Marcos Juárez',
+    documento: 'Eficiencia de Conversión y Nutrición en Cerdos en Crecimiento',
+    fecha_fuente: '2024-07-22',
+    estado_definicion: 'HOMOLOGADO',
+    activo: true,
+  },
+
+  // --- INDICADORES CON ESTÁNDAR INTA PENDIENTE (REQUERIMIENTO OBLIGATORIO) ---
+  {
+    id_estandar: 'EST-OVI-MB-INTA-PEND',
+    id_indicador: 'margen_bruto_ha',
+    indicador_nombre: 'Margen Bruto por Hectárea',
+    id_especie: 'ESP001',
+    especie_nombre: 'Ovinos',
+    tipo_estandar: 'INTA',
+    valor: null, // Pendiente de definición
+    unidad: '$/ha',
+    fuente: 'INTA',
+    observaciones: 'Pendiente de homologación por informe de costos regional INTA 2026',
+    estado_definicion: 'PENDIENTE_DEFINICION',
+    activo: true,
+  },
+  {
+    id_estandar: 'EST-BOV-MB-INTA-PEND',
+    id_indicador: 'margen_bruto_ha',
+    indicador_nombre: 'Margen Bruto por Hectárea Bovina',
+    id_especie: 'ESP002',
+    especie_nombre: 'Bovinos',
+    tipo_estandar: 'INTA',
+    valor: null,
+    unidad: '$/ha',
+    fuente: 'INTA',
+    observaciones: 'Pendiente de homologación en serie de márgenes agropecuarios zonales',
+    estado_definicion: 'PENDIENTE_DEFINICION',
+    activo: true,
+  },
+  {
+    id_estandar: 'EST-POR-MORT-ENG-INTA-PEND',
+    id_indicador: 'mortalidad_engorde_porc',
+    indicador_nombre: 'Mortalidad en Engorde Porcino',
+    id_especie: 'ESP003',
+    especie_nombre: 'Porcinos',
+    tipo_estandar: 'INTA',
+    valor: null,
+    unidad: '%',
+    fuente: 'INTA',
+    observaciones: 'Sin publicación técnica regional disponible para instalaciones semiabiertas',
+    estado_definicion: 'PENDIENTE_DEFINICION',
+    activo: true,
+  },
+];

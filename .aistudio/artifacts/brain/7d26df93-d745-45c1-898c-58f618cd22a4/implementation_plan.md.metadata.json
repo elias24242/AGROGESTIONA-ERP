@@ -1,0 +1,6 @@
+{
+  "summary":  "Diagnóstico exhaustivo y plan de implementación arquitectónico para la evolución incremental de 'ERP Ovinos' a 'Sistema de Gestión Ganadera Pozo del Carril - La Aguada'. Incluye auditoría previa, modelo de datos multi-especie (OVI, BOV, POR, Consolidado), migración de movimientos y series de panel desde CSVs, menú agrupado expandible, comparativas de tres niveles (Real, Pozo del Carril, INTA), y resolución de problemas UX/UI sin pérdida de funcionalidades existentes.",
+  "updatedAt":  "2026-10-21T22:52:43.731622608Z",
+  "requestFeedback":  true,
+  "userFacing":  true
+}

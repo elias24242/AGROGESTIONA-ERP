@@ -1,0 +1,673 @@
+@import "tailwindcss";
+
+/* ========================================================
+   AGROGESTIONA ERP - SISTEMA DE DISEÑO TÉCNICO MINIMALISTA
+   Tokens de color, bordes rectos (0-2px), modo oscuro negro/grafito
+   y modo claro de alto contraste.
+   ======================================================== */
+
+:root {
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  
+  /* Radios rectos estrictos */
+  --radius-none: 0px;
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================================================
+   1. BORDES RECTOS GLOBALES (BORDES RECTOS 0px / 2px)
+   Eliminación de botones tipo pastilla y cards excesivamente redondeadas
+   ======================================================== */
+.rounded-3xl,
+.rounded-2xl,
+.rounded-xl,
+.rounded-lg,
+.rounded-md,
+.rounded-sm {
+  border-radius: 2px !important;
+}
+
+/* Permitir border-radius 0 total donde corresponda */
+.rounded-none {
+  border-radius: 0px !important;
+}
+
+/* Limitar badges redondeados excesivos a bordes rectos sutiles */
+.rounded-full {
+  border-radius: 2px !important;
+}
+
+/* ========================================================
+   2. SCROLLBARS ULTRA DISCRETAS (SIN BARRAS HORIZONTALES PARÁSITAS)
+   ======================================================== */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(120, 120, 120, 0.25);
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(120, 120, 120, 0.45);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+/* ========================================================
+   3. TEMA OSCURO (VERDE BOSQUE PROFUNDO / PINE NIGHT - NO NEGRO DIRECTO)
+   Tonalidades verdes oscuras de alta legibilidad y confort visual
+   ======================================================== */
+html.dark,
+body.dark,
+:root:not(.theme-light) {
+  background-color: #0c1813;
+  color: #f2fcf6;
+  color-scheme: dark;
+}
+
+/* Superficies principales en modo oscuro (tonos verde oscuro / pino profundo) */
+.dark .bg-slate-950,
+.dark [class*="bg-slate-950"],
+.dark .bg-\[\#0a0a0a\],
+.dark [class*="bg-\[\#0a0a0a\]"] {
+  background-color: #0c1813;
+}
+
+.dark .bg-slate-900,
+.dark [class*="bg-slate-900"],
+.dark .bg-\[\#121212\],
+.dark [class*="bg-\[\#121212\]"] {
+  background-color: #12241d;
+}
+
+.dark .bg-slate-850,
+.dark [class*="bg-slate-850"],
+.dark .bg-\[\#151515\],
+.dark .bg-\[\#161616\],
+.dark [class*="bg-\[\#161616\]"] {
+  background-color: #152b22;
+}
+
+.dark .bg-slate-800,
+.dark [class*="bg-slate-800"],
+.dark .bg-\[\#181818\],
+.dark .bg-\[\#1a1a1a\],
+.dark [class*="bg-\[\#181818\]"],
+.dark [class*="bg-\[\#1a1a1a\]"] {
+  background-color: #183027;
+}
+
+.dark .bg-slate-700,
+.dark [class*="bg-slate-700"],
+.dark .bg-\[\#222222\],
+.dark .bg-\[\#242424\],
+.dark [class*="bg-\[\#222222\]"],
+.dark [class*="bg-\[\#242424\]"] {
+  background-color: #1f3d32;
+}
+
+/* Bordes en Modo Oscuro: verde bosque con excelente definición */
+.dark [class*="border-slate-8"],
+.dark [class*="border-slate-7"],
+.dark .border-slate-800,
+.dark .border-slate-700,
+.dark .border-\[\#262626\],
+.dark .border-\[\#2c2c2c\],
+.dark .border-\[\#333333\],
+.dark [class*="border-\[\#262626\]"],
+.dark [class*="border-\[\#2c2c2c\]"],
+.dark [class*="border-\[\#333333\]"] {
+  border-color: #264d3f;
+}
+
+.dark [class*="border-slate-9"],
+.dark .border-slate-900 {
+  border-color: #1a382d;
+}
+
+.dark [class*="divide-slate-8"],
+.dark [class*="divide-slate-7"] {
+  border-color: #264d3f;
+}
+
+/* Textos legibles en modo oscuro */
+.dark .text-slate-400,
+.dark .text-neutral-400 {
+  color: #a2c7b5;
+}
+
+.dark .text-slate-300,
+.dark .text-neutral-300 {
+  color: #d1e7dc;
+}
+
+.dark .text-slate-200,
+.dark .text-neutral-200 {
+  color: #e5f4ed;
+}
+
+.dark .text-slate-100,
+.dark .text-neutral-100 {
+  color: #f2fcf6;
+}
+
+/* ========================================================
+   4. SEMANTIC DESIGN TOKENS (LIGHT & DARK INDEPENDENT)
+   ======================================================== */
+:root:not(.theme-light),
+.dark {
+  --bg-primary: #0c1813;
+  --bg-secondary: #12241d;
+  --surface: #152b22;
+  --surface-elevated: #183027;
+  --surface-card: #12241d;
+  --text-primary: #f2fcf6;
+  --text-secondary: #d1e7dc;
+  --text-muted: #a2c7b5;
+  --text-on-accent: #ffffff;
+  --border-primary: #264d3f;
+  --border-secondary: #1a382d;
+
+  --success-bg: rgba(6, 78, 59, 0.4);
+  --success-text: #6ee7b7;
+  --success-border: #047857;
+
+  --warning-bg: rgba(120, 53, 15, 0.35);
+  --warning-text: #fcd34d;
+  --warning-border: #b45309;
+
+  --danger-bg: rgba(153, 27, 27, 0.35);
+  --danger-text: #fca5a5;
+  --danger-border: #b91c1c;
+
+  --info-bg: rgba(30, 58, 138, 0.35);
+  --info-text: #93c5fd;
+  --info-border: #1d4ed8;
+}
+
+html.theme-light,
+body.theme-light,
+.theme-light {
+  --bg-primary: #f0fdf4; /* Tono blanco y verde agua claro */
+  --bg-secondary: #e6f7ef;
+  --surface: #ffffff;
+  --surface-elevated: #ffffff;
+  --surface-card: #ffffff;
+  --text-primary: #0f172a; /* Tipografía oscura Slate 900 */
+  --text-secondary: #14532d; /* Verde bosque oscuro 900 */
+  --text-muted: #1e3a29; /* Alto contraste legible */
+  --text-on-accent: #ffffff;
+  --border-primary: #a7f3d0; /* Verde agua esmeralda 200 */
+  --border-secondary: #dcfce7; /* Verde agua suave 100 */
+
+  --success-bg: #dcfce7;
+  --success-text: #064e3b;
+  --success-border: #86efac;
+
+  --warning-bg: #fef3c7;
+  --warning-text: #78350f; /* Ámbar oscuro */
+  --warning-border: #f59e0b;
+
+  --danger-bg: #fee2e2;
+  --danger-text: #991b1b; /* Rojo oscuro */
+  --danger-border: #f87171;
+
+  --info-bg: #e0f2fe;
+  --info-text: #075985; /* Azul oscuro */
+  --info-border: #7dd3fc;
+
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  color-scheme: light;
+}
+
+/* ========================================================
+   5. TEMA CLARO: SUPERFICIES Y CARDS DE ALTO CONTRASTE
+   ======================================================== */
+.theme-light .bg-slate-950,
+.theme-light .bg-slate-900,
+.theme-light .bg-slate-850,
+.theme-light [class*="bg-slate-950/"],
+.theme-light [class*="bg-slate-900/"],
+.theme-light [class*="bg-slate-850/"] {
+  background-color: #ffffff !important;
+  color: #0f172a;
+}
+
+.theme-light .bg-slate-800,
+.theme-light [class*="bg-slate-800/"] {
+  background-color: #f8fafc !important;
+  color: #0f172a;
+}
+
+.theme-light .bg-slate-700,
+.theme-light [class*="bg-slate-700/"] {
+  background-color: #f1f5f9 !important;
+  color: #0f172a;
+}
+
+/* Bordes en Modo Claro */
+.theme-light .border-slate-950,
+.theme-light .border-slate-900,
+.theme-light .border-slate-850,
+.theme-light .border-slate-800,
+.theme-light .border-slate-700,
+.theme-light [class*="border-slate-900/"],
+.theme-light [class*="border-slate-800/"],
+.theme-light [class*="border-slate-700/"] {
+  border-color: #e2e8f0 !important;
+}
+
+.theme-light .border-slate-600 {
+  border-color: #cbd5e1 !important;
+}
+
+.theme-light .divide-slate-800,
+.theme-light .divide-slate-700 {
+  border-color: #e2e8f0 !important;
+}
+
+/* ========================================================
+   6. TEMA CLARO: TIPOGRAFÍA Y LEGIBILIDAD (WCAG AA)
+   Evita blanco sobre claro y textos de bajo contraste
+   ======================================================== */
+/* Textos que en Dark Mode eran blancos o casi blancos sobre el contenedor */
+.theme-light .bg-white .text-white,
+.theme-light .bg-slate-50 .text-white,
+.theme-light .bg-slate-100 .text-white,
+.theme-light .bg-slate-900 .text-white,
+.theme-light .bg-slate-950 .text-white,
+.theme-light .bg-slate-800 .text-white,
+.theme-light h1.text-white,
+.theme-light h2.text-white,
+.theme-light h3.text-white,
+.theme-light h4.text-white,
+.theme-light h5.text-white,
+.theme-light h6.text-white,
+.theme-light p.text-white,
+.theme-light span.text-white:not(button.bg-emerald-600 *):not(button.bg-emerald-700 *):not(button.bg-indigo-600 *):not(button.bg-blue-600 *):not(button.bg-rose-600 *):not(.badge-solid-dark *),
+.theme-light strong.text-white:not(button.bg-emerald-600 *):not(button.bg-emerald-700 *):not(button.bg-indigo-600 *):not(button.bg-blue-600 *):not(button.bg-rose-600 *) {
+  color: #0f172a !important;
+}
+
+/* Escala de grises con contraste suficiente en modo claro */
+.theme-light .text-slate-100,
+.theme-light .text-slate-200,
+.theme-light .text-neutral-100,
+.theme-light .text-neutral-200 {
+  color: #0f172a !important;
+}
+
+.theme-light .text-slate-300,
+.theme-light .text-neutral-300 {
+  color: #1e293b !important;
+}
+
+.theme-light .text-slate-400,
+.theme-light .text-neutral-400 {
+  color: #475569 !important; /* Slate 600 - WCAG AA >= 4.5:1 */
+}
+
+.theme-light .text-slate-500,
+.theme-light .text-neutral-500 {
+  color: #334155 !important;
+}
+
+/* ========================================================
+   7. TEMA CLARO: COLORES DE ESTADO (SEMÁFOROS & ALERTAS)
+   Jamás amarillo claro o pastel sobre fondo blanco/gris
+   ======================================================== */
+/* AMARILLO / ÁMBAR */
+.theme-light .text-amber-300,
+.theme-light .text-amber-400,
+.theme-light .text-amber-500,
+.theme-light .text-yellow-300,
+.theme-light .text-yellow-400,
+.theme-light .text-yellow-500 {
+  color: #92400e !important; /* Amber 800 */
+}
+
+.theme-light .bg-amber-500\/10,
+.theme-light .bg-amber-500\/15,
+.theme-light .bg-amber-500\/20,
+.theme-light .bg-yellow-500\/10,
+.theme-light .bg-yellow-500\/20 {
+  background-color: #fffbeb !important;
+  border-color: #fcd34d !important;
+  color: #92400e !important;
+}
+
+.theme-light .bg-amber-500\/10 *,
+.theme-light .bg-amber-500\/20 *,
+.theme-light .bg-yellow-500\/10 * {
+  color: inherit;
+}
+
+.theme-light .bg-amber-500\/10 strong,
+.theme-light .bg-amber-500\/20 strong {
+  color: #78350f !important;
+}
+
+/* ROJO / CRÍTICO / ERROR */
+.theme-light .text-rose-300,
+.theme-light .text-rose-400,
+.theme-light .text-red-300,
+.theme-light .text-red-400 {
+  color: #991b1b !important; /* Red 800 */
+}
+
+.theme-light .bg-rose-500\/10,
+.theme-light .bg-rose-500\/15,
+.theme-light .bg-rose-500\/20,
+.theme-light .bg-red-500\/10,
+.theme-light .bg-red-500\/15,
+.theme-light .bg-red-500\/20 {
+  background-color: #fef2f2 !important;
+  border-color: #fecaca !important;
+  color: #991b1b !important;
+}
+
+.theme-light .bg-rose-500\/10 *,
+.theme-light .bg-red-500\/15 * {
+  color: inherit;
+}
+
+.theme-light .bg-rose-500\/10 strong,
+.theme-light .bg-red-500\/15 strong {
+  color: #7f1d1d !important;
+}
+
+/* VERDE / ÉXITO / CONFIRMADO */
+.theme-light .text-emerald-300,
+.theme-light .text-emerald-400 {
+  color: #065f46 !important; /* Emerald 800 */
+}
+
+.theme-light .bg-emerald-500\/10,
+.theme-light .bg-emerald-500\/15,
+.theme-light .bg-emerald-500\/20 {
+  background-color: #ecfdf5 !important;
+  border-color: #a7f3d0 !important;
+  color: #065f46 !important;
+}
+
+.theme-light .bg-emerald-500\/10 *,
+.theme-light .bg-emerald-500\/20 * {
+  color: inherit;
+}
+
+.theme-light .bg-emerald-500\/10 strong,
+.theme-light .bg-emerald-500\/20 strong {
+  color: #064e3b !important;
+}
+
+/* AZUL / INFORMACIÓN / PLANES */
+.theme-light .text-blue-300,
+.theme-light .text-blue-400,
+.theme-light .text-cyan-300,
+.theme-light .text-cyan-400,
+.theme-light .text-indigo-300,
+.theme-light .text-indigo-400 {
+  color: #1e40af !important; /* Blue 800 */
+}
+
+.theme-light .bg-blue-500\/10,
+.theme-light .bg-blue-500\/20,
+.theme-light .bg-indigo-950\/20,
+.theme-light .bg-indigo-500\/10 {
+  background-color: #eff6ff !important;
+  border-color: #bfdbfe !important;
+  color: #1e40af !important;
+}
+
+.theme-light .bg-blue-500\/10 *,
+.theme-light .bg-indigo-950\/20 * {
+  color: inherit;
+}
+
+.theme-light .bg-blue-500\/10 strong,
+.theme-light .bg-indigo-950\/20 strong {
+  color: #1e3a8a !important;
+}
+
+/* ========================================================
+   8. TEMA CLARO: PESTAÑAS (TABS), BOTONES Y ESTADOS
+   Pestañas inactivas claramente legibles, nunca desvanecidas
+   ======================================================== */
+.theme-light button.text-slate-400,
+.theme-light a.text-slate-400 {
+  color: #334155 !important; /* Slate 700 */
+}
+
+.theme-light button.text-slate-400:hover,
+.theme-light a.text-slate-400:hover {
+  color: #0f172a !important;
+  background-color: #f1f5f9 !important;
+}
+
+/* Elementos deshabilitados legibles (sin opacidad extrema) */
+.theme-light button:disabled,
+.theme-light input:disabled,
+.theme-light select:disabled,
+.theme-light textarea:disabled {
+  background-color: #f1f5f9 !important;
+  color: #64748b !important;
+  border-color: #cbd5e1 !important;
+  opacity: 0.8 !important;
+  cursor: not-allowed !important;
+}
+
+/* Inputs, Selects y Textareas */
+.theme-light input:not([type="checkbox"]):not([type="radio"]),
+.theme-light select,
+.theme-light textarea {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+  border-radius: 2px;
+}
+
+.theme-light input::placeholder,
+.theme-light textarea::placeholder {
+  color: #64748b !important;
+  opacity: 1 !important;
+}
+
+.theme-light input:focus,
+.theme-light select:focus,
+.theme-light textarea:focus {
+  border-color: #059669 !important;
+  outline: none !important;
+  box-shadow: 0 0 0 1px #059669 !important;
+}
+
+/* ========================================================
+   9. TEMA CLARO: TABLAS
+   Encabezados grafito/negro, filas contrastadas
+   ======================================================== */
+.theme-light table {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+}
+
+.theme-light th {
+  background-color: #f1f5f9 !important;
+  color: #1e293b !important;
+  font-weight: 700 !important;
+  border-color: #e2e8f0 !important;
+}
+
+.theme-light td {
+  color: #0f172a !important;
+  border-color: #e2e8f0 !important;
+}
+
+.theme-light tr:hover td {
+  background-color: #f8fafc !important;
+}
+
+/* Tabular figures para cifras financieras y de stock */
+.tabular-nums,
+table td,
+.font-mono {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ========================================================
+   4. MATERIAL DESIGN 3 (M3) MOTION & EASING GUIDELINES
+   Valores exactos de temporización (200ms - 300ms) y curvas
+   de flexión para lograr transiciones sumamente fluidas y orgánicas.
+   ======================================================== */
+:root {
+  /* Curvas de flexión M3 */
+  --md-motion-easing-emphasized: cubic-bezier(0.2, 0.0, 0, 1.0);
+  --md-motion-easing-emphasized-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1.0);
+  --md-motion-easing-emphasized-accelerate: cubic-bezier(0.3, 0.0, 0.8, 0.15);
+  --md-motion-easing-standard: cubic-bezier(0.2, 0.0, 0, 1.0);
+  --md-motion-easing-standard-decelerate: cubic-bezier(0, 0, 0.2, 1);
+  --md-motion-easing-standard-accelerate: cubic-bezier(0.4, 0, 1, 1);
+
+  /* Duraciones M3 */
+  --md-motion-duration-short2: 200ms;
+  --md-motion-duration-medium1: 250ms;
+  --md-motion-duration-medium2: 300ms;
+}
+
+/* Transición suave para navegación por pestañas */
+.m3-tab-transition {
+  transition-property: background-color, border-color, color, box-shadow, transform;
+  transition-duration: var(--md-motion-duration-medium1);
+  transition-timing-function: var(--md-motion-easing-emphasized);
+}
+
+/* Transición orgánica para apertura de módulos flotantes y modales */
+.m3-modal-open {
+  animation: m3ModalEnter var(--md-motion-duration-medium2) var(--md-motion-easing-emphasized-decelerate) forwards;
+}
+
+@keyframes m3ModalEnter {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Estados activos/inactivos de botones */
+button,
+a.button-link {
+  transition: background-color var(--md-motion-duration-short2) var(--md-motion-easing-standard),
+              border-color var(--md-motion-duration-short2) var(--md-motion-easing-standard),
+              color var(--md-motion-duration-short2) var(--md-motion-easing-standard),
+              transform var(--md-motion-duration-short2) var(--md-motion-easing-emphasized),
+              box-shadow var(--md-motion-duration-short2) var(--md-motion-easing-standard);
+}
+
+button:active:not(:disabled) {
+  transform: scale(0.985);
+}
+
+/* Transición para cambio de vistas de pantalla */
+.m3-view-enter {
+  animation: m3ViewEnter var(--md-motion-duration-medium1) var(--md-motion-easing-standard-decelerate) forwards;
+}
+
+@keyframes m3ViewEnter {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================================================
+   4. TIPOGRAFÍA Y ESCALA VISUAL PERSONALIZABLE (3 ESTILOS)
+   Aumento de 2 a 3 puntos para máxima legibilidad y confort:
+   - Tamaño Chico: 15px (base compacta)
+   - Tamaño Normal: 17.5px (+2.5 puntos estándar de alta lectura)
+   - Tamaño Muy Grande: 20.5px (máxima visibilidad y accesibilidad)
+   ======================================================== */
+:root {
+  font-size: 17px;
+}
+
+@media (min-width: 1024px) {
+  :root {
+    font-size: 17.5px;
+  }
+}
+
+/* Estilo: Tamaño Chico */
+html[data-text-size="chico"],
+:root[data-text-size="chico"] {
+  font-size: 14.5px !important;
+}
+@media (min-width: 1024px) {
+  html[data-text-size="chico"],
+  :root[data-text-size="chico"] {
+    font-size: 15px !important;
+  }
+}
+
+/* Estilo: Tamaño Normal (+2 a +3 puntos) */
+html[data-text-size="normal"],
+:root[data-text-size="normal"] {
+  font-size: 17px !important;
+}
+@media (min-width: 1024px) {
+  html[data-text-size="normal"],
+  :root[data-text-size="normal"] {
+    font-size: 17.5px !important;
+  }
+}
+
+/* Estilo: Tamaño Muy Grande */
+html[data-text-size="grande"],
+:root[data-text-size="grande"] {
+  font-size: 20px !important;
+}
+@media (min-width: 1024px) {
+  html[data-text-size="grande"],
+  :root[data-text-size="grande"] {
+    font-size: 20.5px !important;
+  }
+}
+
+
